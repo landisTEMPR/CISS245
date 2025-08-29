@@ -22,14 +22,12 @@ int main()
 
     // compute the GCD of n2, d2, store in g
     int g = 1;
-    for (int i = 1; i <= min(n2, d2); ++i )
+    for (int i = min(n2, d2); i >= 1; --i)
     {
         if (n2 % i == 0 && d2 % i == 0)
         {
-            if (i > g)
-            {
-                g = i;
-            }
+            g = i;
+            break;
         }
     }
 
