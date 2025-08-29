@@ -1,15 +1,43 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <cmath>
 
 // void bottom_left_tri(int n);
 
+bool isprime(int n)
+{
+    if (n <= 1)
+    {
+        return false;
+    }
+    else
+    {
+        for (int d = 2; d <= sqrt(n); ++d)
+        {
+            if (n % d == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
 int main()
 {
-    int roll = rand() % 2;
-    bool turn = roll;
-
-    std::cout << turn << std::endl;
+    double x;
+    std::cin >> x;
+    for (int n = 2; n <= x; ++n)
+    {
+        if (isprime(n))
+        {
+            std::cout << n << ' ';
+        }
+    }
+    std::cout << std::endl;
+    
     
     return 0;
 }
