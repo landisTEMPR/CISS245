@@ -9,13 +9,20 @@
 //   your program faster and use more memory you must use pointers  to access
 //   the heap. This is important for data-structures in CISS350. Data-
 //   structures allow you to organize large amounts of data and access them
-//   quickly and in an organized way.
+//   quickly and in an organized way. EX. Binary Tree
 //----------------------------------------------------------------------------
 
 #include <iostream>
 
 int main()
 {
-
+    int x = 42;
+    long int y = 0;
+    long long int z = 0;
+    long long w = 0;
+    std::cout << sizeof(x) << '\n';
+    std::cout << &(x) << ' ' << x << '\n'; // &(x) is the the address operator
+    std::cout << (long long)(&(x)) << '\n';
+                           
     return 0;
 }
