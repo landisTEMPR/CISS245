@@ -17,12 +17,24 @@
 int main()
 {
     int x = 42;
-    long int y = 0;
-    long long int z = 0;
-    long long w = 0;
+    int y = 0;
+    // long int y = 0;
+    // long long int z = 0;
+    // long long w = 0;
     std::cout << sizeof(x) << '\n';
     std::cout << &(x) << ' ' << x << '\n'; // &(x) is the the address operator
-    std::cout << (long long)(&(x)) << '\n';
+    std::cout << (long long)(&x) << ' ' << x << '\n';
+    std::cout << (long long)(&y) << ' ' << y << '\n' << '\n';
+
+    int z[] = {2, 3, 5, 7};
+    for (int i = 0; i < 4; ++i)
+    {
+        std::cout << (long long)(&z[i]) << ' ' << z[i] << '\n';
+    }
+
+    std::cout << std::endl;
+    int * p = &x;
+    std::cout << p << ' ' << (long long) p << '\n';
                            
     return 0;
 }
