@@ -2,7 +2,7 @@
 
 void f3(int * p) // pass by pointer that is incrementing y by 1.
 {
-    *p = *p + 1;
+    ++(*p);
 }
 
 void f2(int * p) // pass by pointer
