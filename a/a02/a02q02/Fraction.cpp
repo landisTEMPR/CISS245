@@ -1,0 +1,86 @@
+// File: Fraction.cpp // Author: Brysen Landis
+#include <iostream>
+#include <cstdlib>
+#include "Fraction.h"
+
+int GCD(int a, int b)
+{
+    a = std::abs(a);
+    b = std::abs(b);
+    if (a == 0) return b;
+    if (b == 0) return a;
+    while (b != 0)
+    {
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a; // >= 0
+}
+
+void Fraction_add(int xn, int xd, int yn, int yd)
+{
+    // guard: denominator 0 → undefined
+    if (xd == 0 || yd == 0)
+    {
+        std::cout << "undefined\n";
+        return;
+    }
+
+    // reduce both input fractions first
+    int g = GCD(xn, xd);
+    if (g != 0) { xn /= g; xd /= g; }
+
+    g = GCD(yn, yd);
+    if (g != 0) { yn /= g; yd /= g; }
+
+    // gcd of denominators; use it to compute the LCM denominator
+    int gcdDen = GCD(xd, yd);
+
+    // new numerator and denominator using the LCM
+    int zn = xn * (yd / gcdDen) + yn * (xd / gcdDen);
+    int zd = (xd / gcdDen) * yd;
+
+    simplify_normalize(zn, zd);
+    Fraction_print(zn, zd);
+}
+
+void simplify_normalize(int& n, int& d)
+{
+    int g = GCD(n, d);
+    if (g != 0)
+    {
+        n /= g;
+        d /= g;
+    }
+    if (d < 0)
+    {
+        n = -n;
+        d = -d;
+    } // keep denominator positive
+}
+
+void Fraction_print(int n, int d)
+{
+    if (d == 0)
+    {
+        std::cout << "undefined\n";
+        return;
+    }
+    if (n == 0)
+    {
+        std::cout << 0 << '\n';
+        return;
+    }
+
+    simplify_normalize(n, d);
+
+    if (d == 1)
+    {
+        std::cout << n << '\n';
+    }
+    else
+    {
+        std::cout << n << '/' << d << '\n';
+    }
+}
