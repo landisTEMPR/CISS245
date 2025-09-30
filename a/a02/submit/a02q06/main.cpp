@@ -7,7 +7,7 @@
 
 void test_Fraction_print()
 {
-    int xn = 0, xd = 0; // numerator and denominator of a fraction
+    int xn = 0, xd = 0;
     std::cin >> xn >> xd;
     Fraction_print(xn, xd);
     std::cout << std::endl;
@@ -22,11 +22,35 @@ void test_Fraction_add()
 }
 
 
+void test_Fraction_mult()
+{
+    int xn, xd, yn, yd;
+    std::cin >> xn >> xd >> yn >> yd;
+    Fraction_mult(xn, xd, yn, yd); 
+}
+
+
 void test_Fraction_sub()
 {
     int xn, xd, yn, yd;
     std::cin >> xn >> xd >> yn >> yd;
     Fraction_sub(xn, xd, yn, yd);
+}
+
+
+void test_Fraction_div()
+{
+    int xn, xd, yn, yd;
+    std::cin >> xn >> xd >> yn >> yd;
+    Fraction_mult(xn, xd, yn, yd);
+}
+
+
+void test_Fraction_eq()
+{
+    int xn, xd, yn, yd;
+    std::cin >> xn >> xd >> yn >> yd;
+    std::cout << Fraction_eq(xn, xd, yn, yd) << '\n';
 }
 
 
@@ -41,8 +65,19 @@ int main()
             break;
         case 2:
             test_Fraction_add();
+            break;
         case 3:
             test_Fraction_sub();
+            break;
+        case 4:
+            test_Fraction_mult();
+            break;
+        case 5:
+            test_Fraction_div();
+            break;
+        case 6:
+            test_Fraction_eq();
+            break;
     }
     return 0;
 }

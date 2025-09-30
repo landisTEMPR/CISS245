@@ -85,11 +85,6 @@ void simplify_normalize(int& n, int& d)
 }
 
 
-void Fraction_sub()
-{
-}
-
-
 void Fraction_print(int n, int d)
 {
     if (d == 0)

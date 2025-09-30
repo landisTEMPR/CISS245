@@ -9,7 +9,13 @@
 
 void Fraction_print(int n, int d);
 void simplify_normalize(int& n, int& d);
-int  GCD(int a, int b);
+void test_Fraction_add(int xn, int xd, int yn, int yd);x
+void test_Fraction_sub(int xn, int xd, int yn, int yd);
+void test_Fraction_mult(int xn, int xd, int yn, int yd);
+void Fraction_add(int xn, int xd, int yn, int yd);
+void Fraction_sub(int xn, int xd, int yn, int yd);
+void Fraction_mult(int xn, int xd, int yn, int yd);
+int GCD(int a, int b);
 
 #endif
 

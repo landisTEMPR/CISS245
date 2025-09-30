@@ -22,6 +22,13 @@ void test_Fraction_add()
 }
 
 
+void test_Fraction_mult()
+{
+    int xn, xd, yn, yd;
+    std::cin >> xn >> xd >> yn >> yd;
+    Fraction_mult(xn, xd, yn, yd);
+}
+
 void test_Fraction_sub()
 {
     int xn, xd, yn, yd;
@@ -43,6 +50,8 @@ int main()
             test_Fraction_add();
         case 3:
             test_Fraction_sub();
+        case 4:
+            test_Fraction_mult();
     }
     return 0;
 }

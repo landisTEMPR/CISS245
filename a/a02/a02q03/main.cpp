@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Fraction.h"
 
+
 void test_Fraction_print()
 {
     int xn = 0, xd = 0; // numerator and denominator of a fraction
@@ -11,6 +12,23 @@ void test_Fraction_print()
     Fraction_print(xn, xd);
     std::cout << std::endl;
 }
+
+
+void test_Fraction_add()
+{
+    int xn, xd, yn, yd;
+    std::cin >> xn >> xd >> yn >> yd;
+    Fraction_add(xn, xd, yn, yd);
+}
+
+
+void test_Fraction_sub()
+{
+    int xn, xd, yn, yd;
+    std::cin >> xn >> xd >> yn >> yd;
+    Fraction_sub(xn, xd, yn, yd);
+}
+
 
 int main()
 {
@@ -21,6 +39,10 @@ int main()
         case 1:
             test_Fraction_print();
             break;
+        case 2:
+            test_Fraction_add();
+        case 3:
+            test_Fraction_sub();
     }
     return 0;
 }

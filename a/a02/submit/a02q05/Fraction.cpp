@@ -16,7 +16,7 @@ int GCD(int a, int b)
         b = a % b;
         a = t;
     }
-    return a; // >= 0
+    return a;
 }
 
 
@@ -67,6 +67,58 @@ void Fraction_sub(int xn, int xd, int yn, int yd)
     Fraction_print(zn, zd);
 }
 
+void Fraction_mult(int xn, int xd, int yn, int yd)
+{
+    if (xd == 0 || yd == 0)
+    {
+        std::cout << "undefined\n";
+        return;
+    }
+
+    int zn = xn * yn;
+    int zd = xd * yd;
+
+    simplify_normalize(zn, zd);
+    Fraction_print(zn, zd);
+}
+
+void Fraction_div(int xn, int xd, int yn, int yd)
+{
+    if (xd == 0 || yd == 0 || yn == 0)
+    {
+        std::cout << "undefined\n";
+        return;
+    }
+    
+    int zn = xn * yd;
+    int zd = xd * yn;
+
+    simplify_normalize(zn, zd);
+    Fraction_print(zn, zd);
+}
+
+
+bool Fraction_eq(int xn, int xd, int yn, int yd)
+{
+    if (xd == 0 || yd == 0) { return false; }
+
+    simplify_normalize(xn, xd);
+    simplify_normalize(yn, yd);
+
+    return (xn == yn && xd == yd);
+}
+
+
+bool Fraction_neq(int xn, int xd, int yn, int yd)
+{
+    if (xd == 0 || yd == 0) { return false; }
+
+    simplify_normalize(xn, xd);
+    simplify_normalize(yn, yd);
+
+    if (xn != yn && xd != yd) { return true; }
+    else { return false; }
+}
 
 
 void simplify_normalize(int& n, int& d)
@@ -81,12 +133,7 @@ void simplify_normalize(int& n, int& d)
     {
         n = -n;
         d = -d;
-    } // keep denominator positive
-}
-
-
-void Fraction_sub()
-{
+    }
 }
 
 
