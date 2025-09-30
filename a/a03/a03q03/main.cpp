@@ -39,16 +39,11 @@ void test_str_chr()
     char x[MAX_BUF];
     char c;
 
-    std::cin >> c;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
     std::cin.getline(x, MAX_BUF);
-
+    std::cin >> c;
     int i = str_chr(x, c);
     std::cout << i << '\n';
 }
-
-
 
 
 int main()
