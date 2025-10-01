@@ -76,7 +76,7 @@ void test_str_lower()
 }
 
 
-void test_str_tok();
+void test_str_tok()
 {
     char x[MAX_BUF];
     char y[MAX_BUF];

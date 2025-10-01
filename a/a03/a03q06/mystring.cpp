@@ -102,13 +102,54 @@ void str_lower(char x[], char y[])
 }
 
 
-void std_tok(char x[], char y[], char delimiters[])
+bool str_tok(char x[], char y[], char delimiters[])
 {
-    if (y[0] == '\0')
+    // If y is empty, return false
+    if (str_len(y) == 0)
     {
         x[0] = '\0';
         return false;
     }
     
-    return;
+    // Find the first occurrence of any delimiter character
+    int min_index = -1;
+    
+    for (int i = 0; i < str_len(delimiters); ++i)
+    {
+        int index = str_chr(y, delimiters[i]);
+        if (index != -1)
+        {
+            if (min_index == -1 || index < min_index)
+            {
+                min_index = index;
+            }
+        }
+    }
+    
+    // If no delimiter found, copy all of y to x and empty y
+    if (min_index == -1)
+    {
+        str_cpy(x, y);
+        y[0] = '\0';
+        return true;
+    }
+    
+    // Copy characters from y[0] to y[min_index-1] into x
+    int i;
+    for (i = 0; i < min_index; ++i)
+    {
+        x[i] = y[i];
+    }
+    x[i] = '\0';
+    
+    // Shift remaining characters in y to the left
+    // Skip the delimiter character at min_index
+    int j = 0;
+    for (i = min_index + 1; i <= str_len(y); ++i)
+    {
+        y[j] = y[i];
+        ++j;
+    }
+    
+    return true;
 }

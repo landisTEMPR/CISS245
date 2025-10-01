@@ -11,6 +11,6 @@ int str_str(char [], char []);
 void str_cpy(char [], char []);
 void str_cat(char [], char []);
 void str_lower(char [], char[]);
-void str_tok(char [], char [], char []);
+bool str_tok(char [], char [], char []);
 
 #endif
