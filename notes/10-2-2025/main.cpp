@@ -3,13 +3,24 @@
 
 void f()
 {
-    int * p;
-    p = new int[5];
-    *p = 2;
-    std::cout << (unsigned long long) p << ' ' << (*p) << '\n';
-    int * q = p + 4;
-    std::cout << (unsigned long long) q << '\n';
-    *q = 3;
+    // int * p;
+    // p = new int[5];
+    // *p = 2;
+    // std::cout << (unsigned long long) p << ' ' << (*p) << '\n';
+    // int * q = p + 4;
+    // std::cout << (unsigned long long) q << '\n';
+    // *q = 3;
+
+    // int * p = new int[5]; DONT USE THIS
+    // for (int i = 0; i < 5; ++i)
+    // {
+    //     *(p + i) = 42;
+    // }
+
+    for (int * q = p; q < p + 5; q = q + 1) // USE THIS METHOD
+    {
+        (*q) = 42;
+    }
 }
 
 
