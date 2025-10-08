@@ -4,6 +4,7 @@
 #include <iostream>
 #include "mystring.h"
 
+
 int str_len(char x[])
 {
     int len = 0;
@@ -107,22 +108,15 @@ int str_str(char x[], char y[])
 void str_lower(char x[], char y[])
 {
     int i = 0;
-    while (y[i] == '\0')
+    while (y[i] != '\0')
     {
-        if ('A' <= y[i] && y[i] <= 'Z')
+        x[i] = y[i]; 
+        if ('A' <= x[i] && x[i] <= 'Z')
         {
-            x[i] = y[i] - 'A' + 'a';
-        }
-        else
-        {
-            x[i] = y[i];
+            x[i] = x[i] - 'A' + 'a';
         }
         ++i;
-    }  
+    }
+    x[i] = '\0';
+    return;
 }
-
-
-
-
-
-

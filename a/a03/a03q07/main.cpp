@@ -71,8 +71,34 @@ void test_str_lower()
     
     str_lower(x, y);
     std::cout << x << std::endl;
+
+    return;
 }
 
+
+void test_str_tok()
+{
+    char x[MAX_BUF];
+    char y[MAX_BUF];
+    char delimiters[MAX_BUF] = " ,.";
+
+    std::cin.getline(y, MAX_BUF);
+    bool b = str_tok(x, y, delimiters);
+    std::cout << b << ' ' << x << ' ' << y << std::endl;
+
+    return;
+    
+}
+
+void test_chat_bot()
+{
+    char input[MAX_BUF];
+    char name[MAX_BUF];
+    char done[MAX_BUF] = ".";
+    std::cout << "Hi, what is your name?" << '\n';
+    std::cin.getline(input, MAX_BUF);
+    std::cout << "Hi " << name << ". How are you?" << '\n';
+}
 
 int main()
 {
@@ -96,6 +122,13 @@ int main()
             break;
         case 4:
             test_str_lower();
+            break;
+        case 5:
+            test_str_tok();
+            break;
+        case 6:
+            test_chat_bot();
+            break;
     }
     
     return 0;
