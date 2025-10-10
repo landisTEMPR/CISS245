@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "Time.h"
 
 
@@ -13,7 +14,9 @@ Time Time_get(int hh, int mm, int ss)
 
 void Time_print(const Time& t0)
 {
-    std::cout << t0.hh << ':' << t0.mm << ':' << t0.ss << '\n';
+    std::cout << std::setfill('0') << std::setw(2) << t0.hh << ':'
+          << std::setfill('0') << std::setw(2) << t0.mm << ':'
+          << std::setfill('0') << std::setw(2) << t0.ss << '\n';
 
     return;
 }
@@ -21,8 +24,9 @@ void Time_print(const Time& t0)
 
 void Time_print(const Time* t0)
 {
-    std::cout << t0->hh << ':' << t0->mm << ':' << t0->ss << '\n';
-
+    std::cout << std::setfill('0') << std::setw(2) << t0->hh << ':'
+          << std::setfill('0') << std::setw(2) << t0->mm << ':'
+          << std::setfill('0') << std::setw(2) << t0->ss << '\n';
     return;
 }
 
