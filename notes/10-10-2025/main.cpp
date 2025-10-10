@@ -15,7 +15,7 @@ int main()
             std::cout << '*';
             system("clear");
         }
-        std::cout << std::setw(10 - i) << ']' << ' ' << i << " MB\n";
+        std::cout << std::setw(10 - i) << ']' << ' ' << i + rand() % 10 << " MB\n";
     }
     return 0;
 }
