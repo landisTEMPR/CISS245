@@ -1,21 +1,18 @@
 #ifndef TIME_H
 #define TIME_H
 
-
 struct Time
 {
-    int hh;
-    int mm;
-    int ss;
+    int hh, mm, ss;
 };
 
-
-void time_Print(const Time& t);
-void time_Print(const Time* t);
-void time_add_one_Sec(Time& t0);
-void time_add_one_Sec(Time* t0);
-bool time_Equals(const Time& t0, const Time& t1);
-bool time_Equals(const Time* t0, const Time* t1);
-
+Time Time_get(int hh, int mm, int ss);
+void Time_print(const Time & t0);
+void Time_print(const Time * t0);
+void Time_add_one_sec(Time & t0);
+void Time_add_one_sec(Time * t0);
+bool Time_equals(const Time & t0, const Time & t1);
+bool Time_equals(const Time * t0, const Time * t1);
+bool operator==(const Time & t0, const Time & t1);
 
 #endif

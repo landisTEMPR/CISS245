@@ -2,37 +2,70 @@
 #include "Time.h"
 
 
-void time_Print(const Time& t)
+// Or Time_constructor(int hh, int mm, int ss)
+// Or Time_ctor(int hh, int mm, int ss)
+Time Time_get(int hh, int mm, int ss)
 {
-    std::cout << t.hh << ':'
-              << t.mm << ':'
-              << t.ss << '\n';
+    Time ret = {hh, mm, ss};
+    return ret;
+}
+
+
+void Time_print(const Time& t0)
+{
+    std::cout << t0.hh << ':' << t0.mm << ':' << t0.ss << '\n';
+
     return;
 }
 
 
-void time_Print(const Time* t)
+void Time_print(const Time* t0)
 {
-    std::cout << t->hh << ':'
-              << t->mm << ':'
-              << t->ss << '\n';
+    std::cout << t0->hh << ':' << t0->mm << ':' << t0->ss << '\n';
+
     return;
 }
 
 
-void time_add_one_Sec(Time& t)
+void Time_add_one_sec(Time& t0)
 {
-    ++t.ss; 
+    ++t0.ss;
+    if (t0.ss == 60)
+    {
+        t0.ss = 0;
+        ++t0.mm;
+        
+    }
+    if (t0.mm == 60)
+    {
+        t0.mm = 0;
+        ++t0.hh;
+    }
+    if (t0.hh == 24)
+    {
+        t0.hh = 0;
+    }
+
+    return;
 }
 
 
-void time_add_one_Sec(Time* t)
+void Time_add_one_sec(Time* t0)
 {
-    ++t->ss;
+    ++t0->ss;
+
+    return;
 }
 
 
-bool time_Equals(const Time& t0, const Time& t1);
+bool Time_equals(const Time& t0, const Time& t1)
+{
+
+    return(t0.hh == t1.hh && t0.mm == t1.mm && t0.ss == t1.ss);
+}
 
 
-bool time_Equals(const Time* t0, const Time* t1);
+bool Time_equals(const Time* t0, const Time* t1)
+{
+    return(t1->hh == t1->hh && t0->mm == t1->mm && t0->ss == t1->ss);
+}
