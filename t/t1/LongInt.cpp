@@ -4,7 +4,7 @@
 #include "LongInt.h"
 
 
-int strlen_c(const char * s)
+int strlen(const char * s)
 {
     if (s == 0)
     {
@@ -12,10 +12,12 @@ int strlen_c(const char * s)
     }
 
     int n = 0;
+
     while (s[n] != '\0')
     {
         ++n;
     }
+
     return n;
 }
 
@@ -38,7 +40,7 @@ void normalize(LongInt & r)
 }
 
 
-LongInt get_LongInt(const char s[])
+LongInt get_longint(const char s[])
 {
     LongInt ret;
 
@@ -55,7 +57,7 @@ LongInt get_LongInt(const char s[])
         return ret;
     }
 
-    int len = strlen_c(s);
+    int len = strlen(s);
 
     if (len == 0)
     {
@@ -112,7 +114,7 @@ LongInt get_LongInt(const char s[])
 }
 
 
-LongInt get_LongInt(int v)
+LongInt get_longint(int v)
 {
     LongInt ret;
 
@@ -142,8 +144,8 @@ LongInt get_LongInt(int v)
 
     while (av > 0 && p < 1000)
     {
-        ret.x_[p++] = static_cast<int>(av % 10);
-        av /= 10;
+        ret.x_[p++] = av % 10;
+        av = av / 10;
     }
 
     ret.size_ = p;
@@ -332,6 +334,7 @@ LongInt operator+(const LongInt & a, const LongInt & b)
                 cmp = -1;
                 break;
             }
+
             if (a.x_[i] > b.x_[i])
             {
                 cmp = 1;
@@ -348,8 +351,8 @@ LongInt operator+(const LongInt & a, const LongInt & b)
         return r;
     }
 
-    const LongInt *larger = nullptr;
-    const LongInt *smaller = nullptr;
+    const LongInt * larger = nullptr;
+    const LongInt * smaller = nullptr;
     int result_sign = 1;
 
     if (cmp > 0)
@@ -404,23 +407,23 @@ LongInt operator-(const LongInt & a, const LongInt & b)
 
 LongInt operator+(const LongInt & a, int b)
 {
-    return a + get_LongInt(b);
+    return a + get_longint(b);
 }
 
 
 LongInt operator+(int a, const LongInt & b)
 {
-    return get_LongInt(a) + b;
+    return get_longint(a) + b;
 }
 
 
 LongInt operator-(const LongInt & a, int b)
 {
-    return a - get_LongInt(b);
+    return a - get_longint(b);
 }
 
 
 LongInt operator-(int a, const LongInt & b)
 {
-    return get_LongInt(a) - b;
+    return get_longint(a) - b;
 }

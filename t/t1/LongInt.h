@@ -9,12 +9,12 @@
 struct LongInt
 {
     int x_[1000];
-    int size_;
-    int sign_;
+    int size_;  
+    int sign_;    
 };
 
-LongInt get_LongInt(const char s[]);
-LongInt get_LongInt(int v);
+LongInt get_longint(const char s[]);
+LongInt get_longint(int v);
 std::ostream & operator<<(std::ostream & out, const LongInt & I);
 bool operator==(const LongInt & a, const LongInt & b);
 bool operator!=(const LongInt & a, const LongInt & b);
