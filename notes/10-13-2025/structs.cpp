@@ -5,7 +5,13 @@ struct StopWatch
 {
     int id;
     Time time;
-}
+};
+
+struct StopWatch2
+{
+    int id;
+    Time *ptime;
+};
 
 
 int main()
@@ -63,9 +69,16 @@ int main()
 
     StopWatch swA;
     swA.id = 0;
-    swA.time.hh = 9;
-    swA.time.mm = 10;
-    swA.time.ss = 5;
+    swA.time = t0;
+
+    Time *pt = new Time;
+    pt->hh = 10;
+    delete pt;
+    StopWatch *swB = new StopWatch;
+    swB->id = 5;
+    swB->time = t0;
+
+    StopWatch2 *p = new StopWatch2;
 
     return 0;
 }
