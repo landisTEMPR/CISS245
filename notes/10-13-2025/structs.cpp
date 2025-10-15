@@ -79,6 +79,10 @@ int main()
     swB->time = t0;
 
     StopWatch2 *p = new StopWatch2;
-
+    p->id = 3;
+    p->ptime = new Time;
+    *(p->ptime) = t0;
+    p->ptime->hh = 10;
+    
     return 0;
 }
