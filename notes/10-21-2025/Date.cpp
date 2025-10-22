@@ -1,32 +1,49 @@
 #include <iostream>
 #include "Date.h"
 
-void init(Date &date, int yyyy, int mm, int dd)
+void Date::init(int yyyy, int mm, int dd)
 {
-    date.yyyy_ = yyyy;
-    date.mm_ = mm;
-    date.dd_ = dd;
+    yyyy_ = yyyy;
+    mm_ = mm;
+    dd_ = dd;
 }
-void print(const Date &date)
+
+
+void Date::print()
 {
-    std::cout << date.yyyy_ << '-'
-              << date.mm_ << '-'
-              << date.dd_ << '\n';
+    std::cout << yyyy_ << '-'
+              << mm_ << '-'
+              << dd_ << '\n';
 }
-void add_y(Date &date, int i)
+
+
+void Date::add_y(int i)
 {
-    date.yyyy_ += i;
+    yyyy_ += i;
 }
-void add_m(Date &date, int i)
+
+
+void Date::add_m(int i)
 {
-    date.mm_ += i;
-    if (date.mm_ >= 13)
+    mm_ += i;
+    if (mm_ >= 13)
     {
-        date.yyyy_ += date.mm_ / 12;
-        date.mm_ = 1;
+        yyyy_ += mm_ / 12;
+        mm_ = 1;
     }
 }
-void add_d(Date &date, int i)
+
+
+void Date::add_d(int i)
 {
-    date.dd_ += i;
+    dd_ += i;
+}
+
+
+void Date::add_m_d(int dm, int dd)
+{
+    add_m(dm);
+    // mm_ += dm;
+    add_d(dd);
+    // dd_ += dd;
 }

@@ -4,18 +4,22 @@
 int main()
 {
     Date today;
-    init(today, 2025, 10, 22);
-    print(today);
-    add_d(today, 1);
-    print(today);
-    add_m(today, 1);
-    print(today);
-    add_y(today, 1);
-    print(today);
+    today.init(2025, 10, 22);
+    today.print();
+    today.add_d(1);
+    today.add_m(1);
+    today.add_y(1);
+    today.print();
 
     Date yesterday;
-    init(yesterday, 2025, 10, 21);
-    print(yesterday);
+    yesterday.init(2025, 10, 21);
+    yesterday.print();
+
+    today.add_m_d(5, 5);
+    today.print();
+    
+
+    
     return 0;
 }
 
