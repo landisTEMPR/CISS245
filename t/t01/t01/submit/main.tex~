@@ -1,0 +1,709 @@
+\input{myquizpreamble}
+\input{yliow}
+\input{ciss245}
+\renewcommand\TITLE{Test 1}
+
+\renewcommand\solution[1]{ 
+%\textwhite{#1}
+\textred{
+%#1
+} 
+}
+
+\newcommand\newnewbox[1]{ 
+  \newsolutionbox{1.25}{0.4}{ 
+    \begin{center}
+      #1 
+    \end{center}
+  } 
+}
+
+\newcommand\newnewnewbox[1]{ 
+  \newsolutionbox{0.75}{0.4}{ 
+    \begin{center}
+      #1 
+    \end{center}
+  } 
+}
+
+\newcommand\qnum{\stepcounter{qqq} \arabic{qqq}. }
+
+\begin{comment}
+Write answerbox() in python.
+
+answerbox(5) ---> box with 5
+answerbox(5, width='2cm', height='1cm') ---> box with 5
+answerbox(5, size='Large')
+answerbox(5, show=True) ... default = False
+\end{comment}
+
+\newcounter{qqq}
+
+\begin{document}
+\topmatter
+
+\textsc{Instructions}
+\begin{enumerate}
+\li This is a closed-book, no-discussion, no-calculator, no-computer
+    test.
+\li Cheating is a serious academic offense. If caught you will 
+    receive an immediate score of -100\%.
+\li If a question asks for a program output and the program contains
+    an error, write \verb!ERROR! as output.
+\li When writing output, use one cell for each output character.
+\li If a question asks the computation of a value and the program or
+    code fragment contains
+    an error, write \verb!ERROR! as value.
+\li When you're asked to write a C++ statement, don't forget that it must
+    end with a semicolon.
+\li Bubblesort refers to the bubblesort algorithm in our notes
+where values are sorted in ascending order.
+\end{enumerate}
+
+\newpage
+
+
+\begin{python}
+from latextool_basic import *
+p = Plot()
+M = 1; N = 21
+m00 = [['Question']]
+m10 = [[i] for i in range(M, N)]
+m01 = [['Points'],
+]
+m11 =[[''] for i in range(M, N)]
+
+M = [[m00, m01], [m10, m11]]
+N = table3(p, M, 0, 0, width=3, height=0.8)
+
+M = 21; N = 41
+m00 = [['Question']]
+m10 = [[i] for i in range(M, N)]
+m01 = [['Points'],
+]
+m11 =[[''] for i in range(M, N)]
+
+M = [[m00, m01], [m10, m11]]
+N = table3(p, M, 8, 0, width=3, height=0.8)
+
+
+
+
+
+
+
+M = 1; N = 2
+m00 = [['TOTAL']]
+m10 = [[''] for i in range(M, N)]
+m01 = [[''],
+]
+m11 =[[''] for i in range(M, N)]
+
+M = [[m00, m01], [m10, m11]]
+N = table3(p, M, 8, -17.5, width=3, height=0.8)
+
+
+print p
+\end{python}
+
+
+\newpage
+
+\qnum
+What is the output of this program?
+\begin{Verbatim}[frame=single]
+int x = 10;
+int y = 20;
+int * p = &x;
+int * q = &y;
+*p = *p * *q;
+*q = 42;
+std::cout << x << ' ' << y << '\n';
+std::cout << *p << ' ' << *q << '\n';
+\end{Verbatim}
+\textsc{Answer}:
+\begin{python}
+from latextool_basic import *
+print consolegrid(numrows=3)
+\end{python}
+
+
+
+
+\newpage
+\qnum
+Rewrite the following code fragment by doing the following: Do a simple addition
+program using the following skeleton.
+\begin{Verbatim}[frame=single]
+int x = 0, y = 0;
+int * p = &x;
+int * q = &y;
+// Do NOT declare any variables below.
+
+// Statement to prompt the user for an integer and put it into x.
+// Do NOT use x in your statement.
+
+
+
+
+// Statement to prompt the user for an integer and put it into y. 
+// Do NOT use y in your statement.
+
+
+
+
+std::cout << x + y << '\n';
+\end{Verbatim}
+(Write your code in the above.)
+
+
+
+
+\newpage
+\qnum
+What is the output of this code fragment?
+\begin{Verbatim}[frame=single]
+int i = 1;
+int j = 2;
+int k = 3;
+int * p = &i;
+int * q = &j;
+int * r = &k;
+p = q;
+q = r;
+std::cout << *p << ' ' << *q << ' ' << *r << '\n'; 
+\end{Verbatim}
+\textsc{Answer}:
+\begin{python}
+from latextool_basic import *
+print consolegrid(numrows=3)
+\end{python}
+
+
+
+
+
+\newpage
+\qnum
+You were brainstorming with your team in one of the company's meeting rooms.
+Your boss popped in to say hi on his way to get coffee and
+he noticed the following diagram on the whiteboard.
+Someone was tracing a piece of code on the whiteboard:
+\begin{center}
+  \includegraphics[width=3in]{pic1.PNG}
+\end{center}
+On his way back, your boss glanced at the whiteboard and saw this:
+\begin{center}
+  \includegraphics[width=3in]{pic2.PNG}
+\end{center}
+You noticed he was shaking his head as he walked away. Why?
+
+\textsc{Answer:}
+\\
+\drawbox{6.4}{1}
+
+
+
+\newpage
+\qnum
+The following program does compile and does run. But it has a memory leak.
+Fix it.
+\begin{Verbatim}[frame=single]
+#include <iostream>
+
+int sum(int n)
+{
+    int s = 0;
+    int * i = new int;
+    for (*i = 0; *i <= n; ++(*i))
+    {
+        s += *i;
+    }
+    return s;
+}
+
+int main()
+{
+    std::cout << sum(10) << '\n';
+    return 0;
+}
+\end{Verbatim}
+(Make corrections to the above code directly.)
+
+
+
+
+\newpage
+\qnum
+The following program prompts the user for two integer values
+and then prints the sum.
+Do NOT use integer or double variables.
+You can only use pointers.
+In fact I have already declared all the variables you need,
+i.e., two pointer variables.
+You must allocate and deallocate memory correctly.
+\begin{Verbatim}[frame=single]
+#include <iostream>
+
+int main()
+{
+    int * p;
+    int * q;
+
+    // allocate memory for p
+
+
+
+
+    // allocate memory for q
+
+
+
+
+    // prompt for integer value and store at integer
+    // that p points to
+
+
+
+
+    // prompt for integer value and store at integer
+    // that q points to
+
+
+
+
+    // print the sum of integers that p and q point
+    // to
+
+
+
+
+    // deallocate memory used by q
+
+
+
+
+    // deallcate memory used by p
+
+
+
+
+    return 0;
+}
+\end{Verbatim}
+(Write code into the above directly.)
+
+
+
+
+\newpage
+\qnum
+Complete this code segment.
+\begin{Verbatim}[frame=single]
+int x[] = {1, 5, 3, 7, 9};
+int * p = &x[0];
+int * q = &x[4];
+
+int max = *p;
+
+// Complete the following to compute the maximum
+// value in the array and it in variable max.
+// Your code must work for different array values in x.
+// You must not use an integer index variable but 
+// rather integer pointer variables. You also cannot use the name x.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{Verbatim}
+(Write code into the above directly.)
+
+
+
+\newpage
+\qnum
+The following have a function that attempts to perform memory allocation but
+it's
+incorrect:
+\begin{Verbatim}[frame=single]
+void mynew(int * p)
+{
+    p = new int;
+}
+
+
+int main()
+{
+    int * p;
+    mynew(p);
+    *p = 42;
+    
+    ... // ignore the rest of the code
+}
+\end{Verbatim}
+Correctly rewrite the function as well as rewrite the main() function
+below.
+
+\textsc{Answer:}
+\begin{Verbatim}[frame=single]
+void mynew(                )
+{
+
+
+
+}
+
+
+int main()
+{
+    int * p;
+
+
+
+    *p = 42;
+    
+    ... // ignore the rest of the code
+}
+\end{Verbatim}
+
+
+
+
+\newpage
+\qnum
+Complete the following by writing a struct:
+\begin{Verbatim}[frame=single]
+#include <iostream>
+
+// define the struct here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void input(Student & x)
+{
+    std::cin >> x.student_id; // prompt for an integer value for x's 
+                              // student id
+    std::cin >> x.dob_year;   // prompt for an integer value for x's year 
+                              // of date of birth
+    std::cin >> x.dob_month;  // prompt for an integer value for x's month 
+                              // of date of birth
+    std::cin >> x.dob_day;    // prompt for an integer value for x's day 
+                              // of date of birth
+    std::cin >> x.height;     // prompt for x's height (which is a double)
+    std::cin >> x.weight;     // prompt for x's weight (which is a double)
+}
+
+int main()
+{
+    Student john;
+    input(john);
+    return 0;
+}
+\end{Verbatim}
+
+
+
+
+\newpage
+\qnum
+You are writing a tic-tac-toe game. The following code is in your
+\verb!main()!:
+\begin{Verbatim}[frame=single]
+#include <iostream>
+#include "TTT.h"
+
+int main()
+{
+    TTT board;
+
+    while (1)
+    {
+        print(board);
+        int row, col;
+        get_input(board, row, col);
+        make_move(board, row, col);
+        if (game_ended(board)) 
+        {
+            break;
+        }
+    }
+    print_result(board);
+
+    return 0;
+}
+\end{Verbatim}
+Complete the header file (with the struct definition and the function
+prototypes -- no function body definitions).
+The struct and function prototypes must be minimal
+(i.e., no useless member variables, no unnecessary parameters,
+reference parameters must be constant whenever possible).
+
+\textsc{Answer:}
+\begin{Verbatim}[frame=single]
+#ifndef TTT_H
+#define TTT_H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
+\end{Verbatim}
+
+
+
+
+
+\newpage
+\qnum
+What is the output? Or is there an error?
+\begin{Verbatim}[frame=single]
+#include <iostream>
+
+int h(int * p)
+{
+    return *p;
+}
+
+int * g(int * p)
+{
+    return p;
+}
+
+int * f(int * p)
+{
+    return (p != NULL ? g(p) : NULL);
+}
+
+int main()
+{
+    int i = 5;
+    std::cout << *f(&i) + h(&i) << std::endl;
+    return 0;
+}
+\end{Verbatim}
+\textsc{Answer}:
+\begin{python}
+from latextool_basic import *
+print consolegrid(numrows=3)
+\end{python}
+
+
+
+
+\newpage
+\qnum
+Complete the following program. Make sure there is no memory leak.
+\begin{Verbatim}[frame=single]
+#include <iostream>
+
+int f(int n)
+{
+    int * p;
+
+    // Allocate an integer array of size n to p. (Of course the array
+    // is in the heap.)
+
+    
+
+    // Fill the array that p points to with values 1, 2, 3, ..., n.
+
+
+
+    // Go over the values in the array that p points to and 
+    // (1) if a value is odd, replace that value by the square root of the
+    //     value, or
+    // (2) if a value is x even, replace that value by x + 1. 
+    // This is one pass.
+    // Repeat this until every value in the array is <= 1.
+    // Return the number of passes you have to run over the array
+
+    int ret; // number of passes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return ret;
+}
+
+int main()
+{
+    int n;
+    std::cin >> n;
+    std::cout << f(n) << ‘\n’;
+    return 0;
+}
+\end{Verbatim}
+
+
+
+
+
+
+
+\newpage
+\qnum
+Complete the following program. Make sure there is no memory leak.
+\begin{Verbatim}[frame=single]
+#include <iostream>
+
+int f(int n)
+{
+    int * p;
+
+    // Allocate an integer array of size n to p. (Of course the array
+    // is in the heap.)
+
+    
+
+    // Fill the array that p points to with values 1, 2, 3, …, n.
+
+
+
+    // Go over the values in the array that p points to and 
+    // (1) if a value is odd, replace that value by the square root of the
+    //     value, or
+    // (2) if a value is x even, replace that value by x + 1. 
+    // This is one pass.
+    // Repeat this until every value in the array is <= 1.
+    // Return the number of passes you have to run over the array
+
+    int ret; // number of passes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return ret;
+}
+
+int main()
+{
+    int n;
+    std::cin >> n;
+    std::cout << f(n) << ‘\n’;
+    return 0;
+}
+\end{Verbatim}
+
+
+
+\newpage
+\qnum
+Complete the following function that performs the binary search:
+
+\begin{Verbatim}[frame=single]
+int binarysearch(int x[], int x_len, int target)
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+\end{Verbatim}
+
+
+
+
+\end{document}

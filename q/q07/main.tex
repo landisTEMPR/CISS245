@@ -1,0 +1,51 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+Write function
+\verb!void remove(char s[], char c)!
+such that it removes \verb!c! from C-string \verb!s!.
+For instance if \verb!s! is \verb!"hello world"!,
+then on calling \verb!remove(s, 'o')!,
+\verb!s! becomes \verb!"hell wrld"!.
+\\
+\ANSWER
+\begin{answercode}
+void remove(char s[], char c)
+{
+}
+\end{answercode}
+(Hint on next page if needed.)
+
+\newpage
+\textsc{Hint}
+
+All the information you need is in the chapter on C-strings.
+The main thing being a C-string has a sentinel value to terminate
+the data (i.e., characters) in the string.
+It's the null character \verb!'\0'!.
+You need to loop over the characters over \verb!s!
+and copy it back to itself if the character you have read is not
+the value of \verb!c!.
+This means you need two indexing variables,
+\verb!i! where you read a character \verb!s[i]!
+and \verb!j! where you write the character.
+Once you have copies the \verb!'\0'!, you stop since that's the last
+thing to copy.
+
+The the idea is therefore something like this:
+\begin{console}[frame=single,fontsize]
+let i = 0 and j = 0
+while (1)
+    if character of s at index i is not c:
+        s[j] = s[i]
+        ++j
+    if character of s at index i is '\0':
+        break
+\end{console}
+Note: The above pseudocode is not quite right.
+You'll need to think about it more.
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

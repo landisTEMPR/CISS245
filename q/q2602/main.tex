@@ -1,0 +1,150 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+Write down the output of the following print statement
+or write ERROR if there is a program error.
+\begin{console}
+int i = 42;
+int j = 5;
+int k = -2;
+int * p = &i;
+int * q = &j;
+int * r = p;
+p = q;
+q = r;
+std::cout << *p << ' ' << *q << ' ' << *r << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Write down the output of the following print statement
+or write ERROR if there is a program error.
+\begin{console}
+int i = 42;
+int j = 5;
+int k = -2;
+int * p = &i;
+int * q = &j;
+int * r = &k;
+std::cout << *p + *q + *r + *i << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Variables \verb!x! and \verb!p! are already declared.
+Write one statement (semicolon please!) so that the memory model becomes:
+\begin{python}
+from latextool_basic import *
+p = Plot()
+
+p += Rect(x0=-1, y0=0.5, x1=0, y1=1.5, background='white', linewidth=0, label=r'\texttt{p}')
+
+r0 = Rect(x0=0, y0=0.5, x1=1, y1=1.5, background='white', linewidth=0.05)
+p += r0
+
+p += Rect(x0=-1, y0=2, x1=0, y1=3, background='white', linewidth=0, label=r'\texttt{x}')
+c = RectContainer(x=0, y=2)
+for x in '51423':
+    c += Rect2(x0=0, y0=0, x1=1, y1=1,
+         linewidth=0.05,
+         label=r'{\texttt{%s}}' % x)
+p += c
+
+# border
+p += Rect(x0=-1.25, y0=-0, x1=6, y1=3.5, linewidth=0.1)
+
+p += Line(points=[(r0.centerx(), r0.centery()),
+                  (c[3].centerx(), r0.centery()),
+                  (c[3].centerx(), c[3].bottomy())],
+          startstyle='dot', linewidth=0.05,
+          endstyle='->')
+print(p)
+\end{python}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+At a specific point in time during the execution of
+a program, the memory model of the variables look like this:
+\begin{python}
+from latextool_basic import *
+p = Plot()
+
+# p
+p += Rect(x0=-1, y0=2, x1=0, y1=3, background='white', linewidth=0, label=r'\texttt{p}')
+pbox = Rect(x0=0, y0=2, x1=1, y1=3, background='white', linewidth=0.05)
+p += pbox
+
+# q
+p += Rect(x0=-1, y0=0.5, x1=0, y1=1.5, background='white', linewidth=0, label=r'\texttt{q}')
+qbox = Rect(x0=0, y0=0.5, x1=1, y1=1.5, background='white', linewidth=0.05)
+p += qbox
+
+abox = Rect(x0=3, y0=2, x1=4, y1=3, background='white', linewidth=0.05,
+            label=r'\texttt{0}')
+p += abox
+
+# border
+p += Rect(x0=-1.25, y0=0, x1=5, y1=3.5, linewidth=0.1)
+
+p += Line(points=[(pbox.centerx(), pbox.centery()),
+                  (abox.leftx(), abox.centery())],
+          startstyle='dot', linewidth=0.05,
+          endstyle='->')
+
+print(p)
+\end{python}
+Write one statement that will cause the memory model to become
+\begin{python}
+from latextool_basic import *
+p = Plot()
+
+# p
+p += Rect(x0=-1, y0=2, x1=0, y1=3, background='white', linewidth=0, label=r'\texttt{p}')
+pbox = Rect(x0=0, y0=2, x1=1, y1=3, background='white', linewidth=0.05)
+p += pbox
+
+# q
+p += Rect(x0=-1, y0=0.5, x1=0, y1=1.5, background='white', linewidth=0, label=r'\texttt{q}')
+qbox = Rect(x0=0, y0=0.5, x1=1, y1=1.5, background='white', linewidth=0.05)
+p += qbox
+
+abox = Rect(x0=3, y0=2, x1=4, y1=3, background='white', linewidth=0.05,
+            label=r'\texttt{0}')
+p += abox
+
+# border
+p += Rect(x0=-1.25, y0=0, x1=5, y1=3.5, linewidth=0.1)
+
+p += Line(points=[(pbox.centerx(), pbox.centery()),
+                  (abox.leftx(), abox.centery())],
+          startstyle='dot', linewidth=0.05,
+          endstyle='->')
+
+p += Line(points=[(qbox.centerx(), qbox.centery()),
+                  (abox.leftx(), abox.centery())],
+          startstyle='dot', linewidth=0.05,
+          endstyle='->')
+
+print(p)
+\end{python}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

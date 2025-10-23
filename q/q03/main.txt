@@ -1,0 +1,38 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q02".
+
+Q1 []  
+Q2 []
+Q3 []
+Q4 [] 
+Q5 []
+
+Q6 [
+double sum(double x[], int size)
+{
+}
+]
+
+Q7 [
+int max(int x[], int size)
+{
+}
+]
+
+Q8 [
+int linearsearch(int x[], int size, int target)
+{
+}
+]
+
+Q9 [
+int count(int x[], int size, int target)
+{
+}
+]
+
+Q10 [
+     swap(      x,       y)
+{
+}
+]
+

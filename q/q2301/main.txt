@@ -1,0 +1,33 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q2102".
+
+Q1 [?]
+
+Q2 [
+// File: main.cpp
+#include "mylibrary.h"
+int main()
+{
+    helloworld();
+    return 0;
+}
+]
+
+[
+// File: mylibrary.h
+#ifndef MYLIBRARY_H
+#define MYLIBRARY_H
+
+inline void helloworld();
+
+#endif
+]
+
+[
+// File: mylibrary.cpp
+#include "mylibrary.h"
+
+void helloworld()
+{
+    std::cout << "hello world\n";
+}
+]

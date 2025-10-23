@@ -1,0 +1,41 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (Or write ERROR)
+\begin{console}
+int x = 1, y = 2;
+int * p = &x;
+int * q = &y;
+p = q;
+int ** r = &p;
+int ** s = &q;
+*r = *s;
+std::cout << *p + *q << std::endl;
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (Or write ERROR)
+\begin{console}
+int x = 2, y = 4;
+int * p = &x;
+int * q = &y;
+int ** r = &p;
+int ** s = &q;
+*r = *s;
+p = q;
+std::cout << *q / *p << std::endl;
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

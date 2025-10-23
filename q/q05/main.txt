@@ -1,0 +1,13 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q05".
+
+Q1 [
+void bubblesort(int x[], int start, int end)
+{
+}
+]
+
+Q2 [
+int binarysearch(int x[], int start, int end, int target)
+{
+}
+]

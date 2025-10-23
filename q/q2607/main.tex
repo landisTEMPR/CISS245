@@ -1,0 +1,79 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+Complete the function \verb!setnull()! so that the output
+of the following program is \verb!0!:
+\begin{console}[fontsize=\small]
+#include <iostream>
+#include <cstddef>
+void setnull(int ** q)
+{
+    // TODO
+}
+int main()
+{
+    int x = 0;
+    int * p = &x;
+    setnull(&p);           // p is set to NULL
+    std:cout << p << '\n'; // output is 0, i.e., p is NULL
+    return 0;
+}
+\end{console}
+\ANSWER
+\begin{answercode}
+void setnull(int ** q)
+{
+
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\newpage
+\nextq
+The output of this code fragment is 42:
+\begin{console}[fontsize=\small]
+int x = 0, y = 42;
+int * p = &x, * q = &y;
+p = q;                  // p points to the value of y
+std:cout << *p << '\n';
+\end{console}
+But when you move the statement \lq\lq \verb!p = q;!" into a function,
+the ouput is 0 (but you want \verb!p! to point to the value of \verb!y!
+and the output to be 42):
+\begin{console}[fontsize=\small]
+#include <iostream>
+void f(int * p, int * q)
+{
+    p = q;
+}
+int main()
+{
+    int x = 0, y = 42;
+    int * p = &x, * q = &y;
+    f(p, q);
+    std:cout << *p << '\n'; // want p to point to the value of y
+    return 0;
+}
+\end{console}
+Fix the function (see below).
+\\ \ANSWER
+\begin{answercode}
+#include <iostream>
+void f(       p,        q)
+{
+
+}
+int main()
+{
+    int x = 0, y = 42;
+    int * p = &x, * q = &y;
+    f(         );
+    std:cout << *p << '\n'; // want p to point to the value of y
+    return 0;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

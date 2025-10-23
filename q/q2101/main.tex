@@ -1,0 +1,67 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+The following program does not run.
+Insert \textit{one} statement to correct the problem.
+\\
+\ANSWER
+\begin{answercode}
+#include <iostream>
+
+int main()
+{
+    std::cout << sum(5, 10, 1) << std::endl;
+    return 0;
+}
+
+int sum(int start, int end, int step)
+{
+    int s = 0;
+    for (int i = start; i <= end; i += step)
+    {
+        s += i;
+    }
+    return s;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+The function \verb!play_audio()! plays music file an audio file. The parameters are:
+\begin{enumerate}[nosep]
+\li \verb!filename!: a C-string that is the name of the audio file to be load
+\li \verb!track_number!: an integer.
+$0$ is the first track, $1$ is the second track, etc.
+$-1$ is \lq\lq play all tracks".
+\li \verb!repeat!: a boolean.
+\end{enumerate}
+The function returns a $0$ if there are no errors,
+a $-1$ if the file cannot be found using the \verb!filename!,
+$-2$ if the \verb!track_number! is not $-1$ and the track number is not found
+in the audio file.
+Write down the prototype of this function.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+The following function call
+\begin{console}
+push_back(x, x_len, 42);
+\end{console}
+sets \verb!x[x_len]! to \verb!42! and increments \verb!x_len! by 1.
+\verb!x! is an array of integer values.
+Write down the function prototype of \verb!push_back!.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

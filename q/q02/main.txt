@@ -1,0 +1,24 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q03".
+
+Q1 [int r =                ;]  
+Q2 [int r =                ;]
+Q3 [int r =                ;]
+Q4 [double r =                   ;]
+
+Q5 [
+#include <iostream>
+
+int main()
+{
+}
+]
+
+Q6 [
+#include <iostream>
+
+int main()
+{
+}
+]
+
+For Q5, Q6, don't forget to seed the random generator. 

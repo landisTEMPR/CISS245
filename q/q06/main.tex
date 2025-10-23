@@ -1,0 +1,105 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+Write function \\
+\verb!void merge(int x[], int & x_len , int y[], int y_len, int z[], int z_len)!
+\\
+where
+\verb!y[0]!,
+\verb!y[1]!, ...
+\verb!y[y_len - 1]!
+and
+\verb!z[0]!,
+\verb!z[1]!, ...
+\verb!z[z_len - 1]!
+are both sorted
+and
+the values in array \verb!y! and \verb!z! are
+\lq\lq merged" into \verb!x! so that
+\verb!x! is sorted and \verb!x_len! is
+set to \verb!y_len + z_len!.
+For instance if \verb!y! is \verb!{0, 2, 6}!
+(and \verb!y_len! is 3)
+and \verb!z! is \verb!{0, 1, 2, 5, 7, 9}! (and \verb!z_len! is 5),
+then \verb!x!
+becomes \verb!{0, 0, 1, 2, 2, 5, 6, 7}!
+and \verb!x_len! is 8.
+Iteratively, the least among what is left in \verb!y! and \verb!z! is
+selected to be placed in \verb!x!.
+{\small
+\begin{align*}
+&\texttt{y = \{\textbf{\underline{0}}, 2, 6\}}, \,\,\,
+  \texttt{z = \{0, 1, 2, 5, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, ?, ?, ?, ?, ?, ?, ?, ?\}}
+\\
+&\texttt{y = \{0, 2, 6\}}, \,\,\,
+  \texttt{z = \{\textbf{\underline{0}}, 1, 2, 5, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, ?, ?, ?, ?, ?, ?, ?\}}
+\\
+&\texttt{y = \{0, 2, 6\}}, \,\,\,
+  \texttt{z = \{0, \textbf{\underline{1}}, 2, 5, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, ?, ?, ?, ?, ?, ?\}}
+\\
+&\texttt{y = \{0, \textbf{\underline{2}}, 6\}}, \,\,\,
+  \texttt{z = \{0, 1, 2, 5, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, 2, ?, ?, ?, ?, ?\}}
+\\
+&\texttt{y = \{0, 2, 6\}}, \,\,\,
+  \texttt{z = \{0, 1, \textbf{\underline{2}}, 5, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, 2, 2, ?, ?, ?, ?\}}
+  \\
+&\texttt{y = \{0, 2, 6\}}, \,\,\,
+  \texttt{z = \{0, 1, 2, \textbf{\underline{5}}, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, 2, 2, 5, ?, ?, ?\}}
+  \\
+&\texttt{y = \{0, 2, \textbf{\underline{6}}\}}, \,\,\,
+  \texttt{z = \{0, 1, 2, 5, 7, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, 2, 2, 5, 6, ?, ?\}}
+  \\
+&\texttt{y = \{0, 2, 6\}}, \,\,\,
+  \texttt{z = \{0, 1, 2, 5, \textbf{\underline{7}}, 9\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, 2, 2, 5, 6, 7, ?\}}
+  \\
+&\texttt{y = \{0, 2, 6\}}, \,\,\,
+  \texttt{z = \{0, 1, 2, 5, 7, \textbf{\underline{9}}\}}, \,\,\,
+  \texttt{x = \{0, 0, 1, 2, 2, 5, 6, 7, 9\}}
+\end{align*}
+}%
+Note: there must be no sorting done on \verb!x!.
+\\
+\ANSWER
+\begin{answercode}
+void merge(int x[], int & x_len , int y[], int y_len, int z[], int z_len)
+{
+}
+\end{answercode}
+(Hint on next page if needed.)
+
+\newpage
+\textsc{Hint}
+
+Use 3 index variables, one for each array.
+Here's a pseudocode for you:
+\begin{console}[fontsize=\small]
+i = 0 // index for x
+j = 0 // index for y
+k = 0 // index for z
+
+while j < y_len and k < z_len:
+    compare y[j] and z[k]
+    put the smaller of the two into x[i] and increment i
+    increment j if y[j] was used, otherwise increment k
+
+while j < y_len:
+    copy y[j] to x[i] and increment i and j
+
+while k < z_len:
+    copy z[k] to x[i] and increment i and k
+
+set x_len appropriately (using i)
+\end{console}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

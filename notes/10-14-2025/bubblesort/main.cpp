@@ -8,8 +8,7 @@ void bubblesort(int* start, int* end)
     while (swapped)
     {
         swapped = false;
-
-        for (p = start; p < end - 1; ++p)
+        for (p = start; p < end -1; ++p)
         {
             if (*p > *(p + 1))
             {
@@ -19,10 +18,9 @@ void bubblesort(int* start, int* end)
 
                 swapped = true;
             }
+            --end;
         }
-        --end;
     }
-
     return;
 }
 

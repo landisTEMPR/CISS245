@@ -1,0 +1,22 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q04".
+
+Q1 []
+
+Q2 [
+int sign(double x)
+{
+}
+]
+
+Q3 [
+int numdigits(int n)
+{
+}
+]
+
+Q4 [
+bool isprime(int n)
+{
+}
+] 
+

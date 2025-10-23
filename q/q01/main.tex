@@ -1,0 +1,259 @@
+%-*-latex-*-
+\input{thispreamble}
+
+This is a closed-book, no compiler, 5 minute quiz.
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+int x = 42, y = 3;
+std::cout << x / y << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+14
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+int x = 42, y = 2;
+std::cout << x / y << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+21
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+int x = 42, y = 1;
+std::cout << x / y << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+42
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+int x = 42, y = 0;
+std::cout << x / y << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+int x = 21, y = 42;
+std::cout << x / y << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 42 % 3 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 42 % 2 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 42 % 1 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 42 % 0 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 42 % 42 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the string length of \verb!"hello \tworld\n???\n"!?
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+In the following code fragment, the output is \verb!132!.
+The value of integer variable \verb!n! is a power of 10.
+What is the value of \verb!n!?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 132435 / n << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+In the following code fragment, the output is \verb!2435!.
+The value of integer variable \verb!n! is a power of 10.
+What is the value of \verb!n!?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 132435 % n << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+In the following code fragment, the output is \verb!32!.
+The values of integer variables \verb!m! and \verb!n! are powers of 10.
+What is the of \verb!m!?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 132435 / m % n << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+In the following code fragment, the output is \verb!32!.
+The values of integer variables \verb!m! and \verb!n! are powers of 10.
+What is the value of \verb!n!?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 132435 / m % n << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+\tf:
+(T = true, F = false, M = statement is meaningless and cannot be answered.)
+You cannot assign an integer value to a \verb!double! variable because
+of type mismatch.
+In other words the code fragment below is invalid \cpp.
+\begin{console}[fontsize=\footnotesize]
+double x = 42;
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+\tf:
+(T = true, F = false, M = statement is meaningless and cannot be answered.)
+You cannot assign an integer value to an integer array because
+of type mismatch.
+In other words the code fragment below is invalid \cpp.
+\begin{console}[fontsize=\footnotesize]
+int x[10] = 42;
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following code fragment?
+\begin{console}[fontsize=\footnotesize]
+int x = 4, y = 8;
+std::cout << double(x / y) << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+If the output of the following code fragment is \verb!6!,
+what is the smallest possible positive integer value for \verb!x!?
+\begin{console}[fontsize=\footnotesize]
+std::cout << 5 + 6 * x / 5 % 10 - 2 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Complete the following code fragment that gets a 4-digit integer input from the
+user and store it in \verb!x!,
+assigns the digits of \verb!x! to
+\verb!x0!, \verb!x1!, \verb!x2!, \verb!x3!
+where \verb!x0! is the lowest order digit (the ones digit)
+and \verb!x3! is the highest order digit (the thousands digit).
+For instance if the user enters \verb!1462!, then the output of the
+code fragment is \verb!1 4 6 2!.
+\\
+\ANSWER
+\begin{answercode}
+int x;
+std::cin >> x;
+int x0 = 0;
+int x1 = 0;
+int x2 = 0;
+int x3 = 0;
+std::cout << x3 << ' ' << x2 << ' ' << x1 << ' ' << x0 << '\n';
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

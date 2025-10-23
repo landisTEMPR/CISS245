@@ -1,0 +1,74 @@
+%-*-latex-*-
+\input{thispreamble}
+
+In any of the following questions, write ERROR if there's
+an error in the code fragment.
+
+%------------------------------------------------------------------------------
+\nextq
+Write one statement to declare \verb!p! to be a pointer
+variable that points to an \verb!int! value.
+(Where's your semicolon?)
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+\vspace{-6pt}
+
+%------------------------------------------------------------------------------
+\nextq
+A \verb!double! variable \verb$x$ has already been declared.
+Pointer variable \verb!y! which is a pointer to a \verb!double!
+has also been declared.
+Write one statement so that \verb!y! points to the value of
+\verb!x!.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Pointer \verb!a! points to \verb!b! which is an \verb!int!
+variable with value \verb!5!.
+Write down the output of the following print statement.
+\begin{console}
+std::cout << *a * 2 + 1 << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Pointers \verb!p!, \verb!q!, and \verb!r! point
+to integer values \verb!3!, \verb!4!, \verb!5!
+respectively.
+Write down the output of the following print statement.
+\begin{console}
+p = q;
+*p = 1;
+std::cout << *p + *q + *r << '\n';
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+The following is a valid statement in a C\texttt{++} program,
+what is the type of \verb!y!?
+\begin{console}
+x[*y] = 3.14159;
+\end{console}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

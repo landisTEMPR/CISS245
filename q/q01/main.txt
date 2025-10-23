@@ -1,0 +1,15 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q01".
+
+Q0 [42] Answer provided as example on how to enter answer. 
+Q1 [] Put your answer in the "box". If the answer is 42, write [42]. Do NOT write [the string length is 42]. 
+Q2 []
+Q3 []
+Q4 [] Value of m
+   [] Value of n
+Q5 []
+Q6 []
+Q7 []
+Q8 []
+Q9 []
+Q10 []
+

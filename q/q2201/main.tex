@@ -1,0 +1,148 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output of the following program:
+\begin{console}[fontsize=\footnotesize]
+#include <iostream>
+
+void change(int x[], int x_len, index, value)
+{
+    x[index] = value;
+}
+
+int main()
+{
+    int x[1000] = {2, 3, 5};
+    int x_len = 3;
+    change(x, xlen, 2, 7);
+    std::cout << x[2];
+    return 0;
+}
+\end{console}
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+The purpose of \verb!push_back! is to \lq\lq extend" the array:
+\begin{console}[fontsize=\footnotesize]
+#include <iostream>
+
+void push_back(int x[], int x_len, value)
+{
+    x[x_len] = value;
+    ++x_len;
+}
+
+int main()
+{
+    int x[1000] = {2, 3, 5};
+    int x_len = 3;
+    push_back(x, x_len, 7);
+
+    std::cout << x_len           // should be 4
+              << ' '
+              << x[3] << '\n';   // should be 7
+    return 0;
+}
+\end{console}
+But the function does not work.
+Correct the function if necessary
+\\
+\ANSWER
+\begin{answercode}
+#include <iostream>
+
+void push_back(int x[], int x_len, value)
+{
+    x[x_len] = value;
+    ++x_len;
+}
+
+int main()
+{
+    int x[1000] = {2, 3, 5};
+    int x_len = 3;
+    push_back(x, x_len, 7);
+
+    std::cout << x_len           // should be 4
+              << ' '
+              << x[3] << '\n';   // should be 7
+    return 0;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Correct the following function if necsssary.
+\\
+\ANSWER
+\begin{answercode}
+#include <iostream>
+
+void f(int x)
+{
+    ++x;
+}
+
+void g(const int & x)
+{
+    ++x;
+}
+
+int main()
+{
+    int a = 0;
+    f(a);      // on return, a should be 1
+    g(a);      // on return, a should be 2
+    return 0;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Write down the output or write ERROR if there's an error in the
+code fragment.
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+int a = 0;
+int b = 1;
+int & c = a;
+int & d = b;
+const int & e = d;
+a = 2;
+c = 3;
+d = 4;
+std::cout << a + b + c + d + e;
+\end{Verbatim}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Write down the output or write ERROR if there's an error in the
+code fragment.
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+int a = 0;
+int b = 1;
+int & c = a;
+int & d = b;
+const int & e = d;
+a = 2;
+d = 3;
+e = 4;
+std::cout << a + b + c + d + e;
+\end{Verbatim}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

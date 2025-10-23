@@ -1,0 +1,85 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+\tf. When you change functions to inline functions, your
+program will always run faster than when you don't.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+There are some problems with the following program below.
+For this question, fix the header file.
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+// File: main.cpp
+#include "mylibrary.h"
+
+int main()
+{
+    helloworld(); //  call an inline function
+    return 0;
+}
+\end{Verbatim}
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+// File: mylibrary.h
+#ifndef MYLIBRARY_H
+#define MYLIBRARY_H
+
+inline void helloworld();
+void f();
+
+#endif
+\end{Verbatim}
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+// File: mylibrary.cpp
+#include "mylibrary.h"
+
+void helloworld()
+{
+    std::cout << "hello world\n";
+}
+
+void goodbyeworld()
+{
+    std::cout << "goodbye world\n";
+}
+\end{Verbatim}
+\ANSWER
+\begin{answercode}
+// File: mylibrary.h
+#ifndef MYLIBRARY_H
+#define MYLIBRARY_H
+
+inline void helloworld();
+void f();
+
+#endif
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Refer to the previous question: Fix the cpp file.
+\\
+\ANSWER
+\begin{answercode}
+// File: mylibrary.cpp
+#include "mylibrary.h"
+
+void helloworld()
+{
+    std::cout << "hello world\n";
+}
+
+void goodbyeworld()
+{
+    std::cout << "goodbye world\n";
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

@@ -1,17 +1,18 @@
 #include <iostream>
+#include "Fraction.h"
 
 int main()
 {
-    char x = 'a';
-    double y = 2.718;
-    bool z = false;
-    int w[] = {2, 5, 3, 7};
+    Fraction f0 = Fraction_get(1, 2);
+    Fraction f1 = Fraction_get(1, 3);
+    std::cout << Fraction_get_n(f0) << ' ' << Fraction_get_d(f0)<< '\n';
+    f0 += f1;
+    std::cout << f0 << '\n';
+    f0 = f0 + f1;
+    std::cout << f0 << '\n';
 
-    char *c = &x;
-    double *g = &y;
-    bool *h = &z;
-    int *d = &w[3];
-
-    std::cout << *c << ' ' << *g << ' ' << *h << ' ' << *d << '\n';
+    std::cin >> f0; //operator >> (std::cin , f0)
+    std::cout << f0 << '\n';
+    ++f0;
     return 0;
 }

@@ -1,0 +1,48 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+Fix the function (see below) and how it's called in \verb!main()!.
+\\
+\ANSWER
+\begin{answercode}
+void my_new(int * p) // FIX
+{
+    p = new int; // FIX
+}
+
+int main()
+{
+    int * p;
+    my_new(p); // FIX
+    *p = 42;
+    delete p;
+    return 0;
+}
+\end{answercode}
+
+
+%------------------------------------------------------------------------------
+\nextq
+Fix the function (see below) and how it's called in \verb!main()!.
+\\
+\ANSWER
+\begin{answercode}
+void my_new_array(int * p, int n) // FIX
+{
+    p = new int[n]; // FIX
+}
+
+int main()
+{
+    int * p;
+    my_new_array(p, 5); // FIX: after this p points to an int array of size 5.
+    p[3] = 42;
+    delete [] p;
+    return 0;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

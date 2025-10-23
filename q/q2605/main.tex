@@ -1,0 +1,99 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (or write ERROR)
+\begin{console}[fontsize=\small]
+int x = 42, y = 24;
+int * p, q;
+
+p = &x;
+q = &y;
+std::cout << *p + *q << '\n';
+\end{console}
+\\ \ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (or write ERROR)
+\begin{console}[fontsize=\small]
+int a = 0, b = 1, c = 2;
+int & p = &a;
+int & q = &b;
+int & r = &c;
+std::cout << *a + *b - *c << '\n';
+\end{console}
+\\ \ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (or write ERROR)
+\begin{console}[fontsize=\small]
+int x = 1;
+int * p = &x;
+int ** q = &p;
+std::cout << *p + **q << '\n';
+\end{console}
+\\ \ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (or write ERROR)
+\begin{console}[fontsize=\small]
+int x = 1;
+int * p = &x;
+int ** q = &p;
+std::cout << *p / *q << '\n';
+\end{console}
+\\ \ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (or write ERROR)
+\begin{console}[fontsize=\small]
+int x = 0, y = 1;
+int * p = &x;
+int * q = &y;
+int * r;
+r = p;
+p = q;
+std::cout << *p << ' ' << *q << ' ' << *r << '\n';
+\end{console}
+\\ \ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+What is the output? (or write ERROR)
+\begin{console}[fontsize=\small]
+int x = 0, y = 1;
+int * p = &x;
+int * q = &y;
+int ** r = &p;
+int * s = *r;
+*s = *q;
+r = &q;
+std::cout << *p << ' ' << *q << ' ' << **r << '\n';
+\end{console}
+\\ \ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

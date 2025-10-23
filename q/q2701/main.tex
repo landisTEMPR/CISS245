@@ -1,0 +1,75 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+In the answer box below, allocate memory for \verb!p! and \verb!q! to point to:
+\\
+(a) write one statement so that \verb!p! points to an array of size 10 in
+the heap and
+\\
+(b) write one statement so that \verb!q! points to the third value
+(i.e., index 2 value) of the array that \verb!p! points to.
+\\
+\ANSWER
+\begin{answercode}
+double *p, *q;
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+The function below has memory issues. Fix the problem.
+\\
+\ANSWER
+\begin{answercode}
+void f()
+{
+    double * p = new double;
+    char * q = new char[1024];
+    // Write two statements below to fix the memory issues
+
+    return;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+There is an array with values 2, 3, 5, 7, 11 in the heap.
+A pointer \verb!p! is pointing to the value 7 of this array.
+Complete the statement below so that \verb!q! points to the value 3
+in the above array.
+\\
+\ANSWER
+\begin{answercode}
+int * q =          ;
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Complete the following linear search function so that
+if \verb!p! is returned, then \verb!p! points to the first time
+\verb!target! appears in the array with beginning address
+\verb!start! and ending address \verb!end - 1!.
+If \verb!target! is not found, then \verb!NULL! is returned.
+\\
+\ANSWER
+\begin{answercode}
+int * linearsearch(int * start, int * end, int target)
+{
+    for (int * p =          ; p <          ; ++p)
+    {
+        if (              )
+        {
+            return            ;
+        }
+    }
+    return              ;
+}
+\end{answercode}
+(This should be a straightforward translation of the linear search
+algorithm from CISS240. Do not change the algorithm other than
+translating it from array indexing to pointer scanning.)
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

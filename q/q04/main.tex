@@ -1,0 +1,131 @@
+%-*-latex-*-
+\input{thispreamble}
+
+%------------------------------------------------------------------------------
+\nextq
+Either write down the output of this code fragment or write ERROR
+if it is not valid C\texttt{++}.
+\begin{Verbatim}[fontsize=\scriptsize, frame=single]
+int x = 0, y = 42, z = 99;
+if (x < 0)
+{
+    int y = 1, z = 100;
+    if (x == 0)
+    {
+        int y = 2;
+        if (y < 1)
+        {
+            std::cout << z;
+        }
+        else
+        {
+            std::cout << z;
+        }
+    }
+    else
+    {
+        int y = 3;
+        if (y < 2)
+        {
+            std::cout << z;
+        }
+        else
+        {
+            std::cout << z;
+        }
+    }
+}
+else
+{
+    int y = 4, z = 200;
+    if (x == 0)
+    {
+        if (y < 3)
+        {
+            std::cout << z;
+        }
+        else
+        {
+            std::cout << z;
+        }
+    }
+    else
+    {
+        if (y < 4)
+        {
+            std::cout << z;
+        }
+        else
+        {
+            std::cout << z;
+        }
+    }
+}
+\end{Verbatim}
+\vspace{-6pt}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Rewrite the following function so that the if-else statement is replaced by
+the ternary operator. The function should contain only one statement.
+\begin{Verbatim}[frame=single, fontsize=\footnotesize]
+int sign(double x)
+{
+    int ret;
+    if (x >= 0)
+    {
+        ret = 1;
+    }
+    else
+    {
+        ret -1;
+    }
+    return ret;
+}
+\end{Verbatim}
+\vspace{-6pt}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Write a function
+\begin{console}
+int numdigits(int n);
+\end{console}
+that returns the number of digits in \verb!n!.
+For instance if \verb!n! is 0 or 5 or 9, the function returns \verb!1!.
+If \verb!n! is 23 or 42 or 99, the function returns \verb!2!.
+If \verb!n! is -123 or -243 or -798, the function returns \verb!3!.
+Etc.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\nextq
+Write a function
+\begin{console}
+bool isprime(int n);
+\end{console}
+that returns \verb!true! if and only if \verb!n! is a prime.
+For instance if \verb!n! is 2, 3, 5, 7, 11, 13, 17, 19, 23, or 29,
+the function returns \verb!true!.
+If \verb!n! is 0, 1, 4, 6, 8, 9, 10, 12, 14, or 15,
+the function returns \verb!false!.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\input{thispostamble}

@@ -1,0 +1,33 @@
+Email this file as attachment to yliow@ccis.edu using your college email account and with subject line "ciss245 q2101".
+
+Q1 [
+#include <iostream>
+
+int main()
+{
+    std::cout << sum(5, 10, 1) << std::endl;
+    return 0;
+}
+
+int sum(int start, int end, int step)
+{
+    int s = 0;
+    for (int i = start; i <= end; i += step)
+    {
+        s += i;
+    }
+    return s;
+}
+]
+
+Q2 [
+REPLACE THIS LINE WITH THE PROTOTYPE
+]
+
+Q3 [
+
+]
+
+Q4 [
+
+]
