@@ -33,6 +33,8 @@ Returns true exactly when world[x][y] is not a space.
 #ifndef WORLD_H
 #define WORLD_H
 
-void init(World & world)
+void init(char[10][10]);
+void print(char[10][10]);
+
 
 #endif

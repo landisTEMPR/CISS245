@@ -109,8 +109,6 @@ void test_init_and_print_world()
     print(world);
 }
 
-
-
 int main()
 {
     int seed;
