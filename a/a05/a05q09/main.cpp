@@ -142,9 +142,6 @@ int main()
         case 8:
             test_init_and_print_world();
             break;
-        case 9:
-            test_set();
-            break;
     }
     
     return 0;
