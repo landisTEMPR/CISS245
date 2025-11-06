@@ -7,6 +7,7 @@ Author : Brysen Landis
 #include <cstdlib>
 #include "Robot.h"
 #include "World.h"
+#include "PowerStation.h"
 
 void test_print()
 {
@@ -109,6 +110,15 @@ void test_init_and_print_world()
     print(world);
 }
 
+void test_set()
+{
+    char world[10][10];
+    init(world);
+    print(world);
+    set(world);
+    print(world);
+}
+
 int main()
 {
     int seed;
@@ -141,6 +151,9 @@ int main()
             break;
         case 8:
             test_init_and_print_world();
+            break;
+        case 9:
+            test_set();
             break;
     }
     
