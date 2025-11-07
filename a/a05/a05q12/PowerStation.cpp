@@ -18,7 +18,7 @@ void print(const PowerStation & powerstation)
     std::cout << powerstation << '\n';
 }
 
-void dec_energylevel(PowerStation & powerstation, int d)
+void drain_power(PowerStation & powerstation, int d)
 {
     powerstation.energylevel -= d;
 }

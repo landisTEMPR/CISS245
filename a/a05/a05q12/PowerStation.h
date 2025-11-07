@@ -16,7 +16,7 @@ struct PowerStation
 
 void init(PowerStation & powerstation, int y, int x, int energylevel);
 void print(const PowerStation & powerstation);
-void dec_energylevel(PowerStation & powerstation, int d);
+void drain_power(PowerStation & powerstation, int d);
 void place_ps(char world[10][10], PowerStation ps[], int count);
 std::ostream & operator<<(std::ostream &, const PowerStation &);
 

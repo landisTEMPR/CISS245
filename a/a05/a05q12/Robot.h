@@ -22,9 +22,11 @@ Increments the energylevel of robot by d.
 void dec_energylevel(Robot & robot, int d);
 Decrements the energylevel of robot by d.
 *********************************************************************/
-
 #ifndef ROBOT_H
 #define ROBOT_H
+
+#include "PowerStation.h"
+#include "Robot.h"
 
 struct Robot
 {
@@ -35,12 +37,17 @@ struct Robot
 
 void init(Robot &, char name, int x, int y, int energylevel);
 void print(const Robot & robot);
+void place_robots(char world[10][10], Robot robots[], int n);
 void move_north(Robot & robot);
 void move_south(Robot & robot);
 void move_east(Robot & robot);
 void move_west(Robot & robot);
-void inc_energylevel(Robot & robot, int d);
-void dec_energylevel(Robot & robot, int d);
+void move_robots(char world[10][10], Robot robots[], int n);
+void recharge_robots(char world[10][10], Robot robots[], PowerStation ps[], int n);
+bool found_gold(const char world[10][10], const Robot robots[], int n);
+void dec_robot_energy(Robot &r, int amount);
+void inc_energylevel(Robot &r, int amount);
+
 std::ostream & operator<<(std::ostream &, const Robot &);
 
 #endif

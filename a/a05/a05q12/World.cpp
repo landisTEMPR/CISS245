@@ -20,7 +20,6 @@ void init(char world[10][10])
     }
 
     bool valid = false;
-
     while (!valid)
     {
         for (int i = 0; i < 10; ++i)
