@@ -23,6 +23,20 @@ int max(int x[], int start, int end)
     }
 }
 
+int linsrch(int x[], int start, int end, int target)
+{
+    if (start == end)
+    {
+        // base case: i.e. x[start ... end - 1] is an empty array
+        return -1;
+    }
+    else
+    {
+        if (x[start] == target) return start;
+        else return linsrch(x, start + 1, end, target);
+    }
+}
+
 
 // SO ITS LIKE A HOUSE OF CARDS WHERE THE FUNCTION KEEPS CALLING ITSELF AND BUILDS LIKE A HOUSE OF CARDS AND THEN THE BASE CASE IS LIKE SOMEONE KNOCKING IT OVER AND THE SCOPES THAT WERE OPEN FOR EACH CALL OF THE FUNCTION START COLLAPSING FROM THE MOST RECENT TO OLDEST CALL.
 
@@ -31,6 +45,8 @@ int main()
     int x[] = {5, 3, 1, 2, 4, 6, 9, 8, 7};
     int m = max(x, 1, 7);
     std::cout << "MAX: " << m << '\n';
+
+    std::cout << "TARGET FOUND AT: " << linsrch(x, 1, 7, 2) << '\n';
 
     return 0;
 }
