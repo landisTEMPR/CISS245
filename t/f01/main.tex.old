@@ -1,0 +1,813 @@
+%-*-latex-*-
+\input{thispreamble.tex}
+
+\renewcommand\AUTHOR{jdoe5@cougars.ccis.edu} % CHANGE TO YOURS
+
+\begin{document}
+\topmattertwo
+
+When submitting using alex, enter \verb!f01! for work.
+
+\input{preamble-instructions.tex}
+
+\begin{center}
+  \textsc{Honor Statement}
+\end{center}
+I, \answerbox{[REPLACE WITH YOUR FULLNAME]},
+attest to the fact that the submitted work is my own and
+is not the result of plagiarism.
+Furthermore, I have not aided another student in the act of
+plagiarism.
+
+% ------------------------------------------------------------------------------
+\begin{python}
+from scoretable import *
+\end{python}
+        
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+What is the output of this code fragment
+if the user enters \verb!0! for \verb!i!, \verb!1! for \verb!j!,
+and \verb!2! for \verb!k!?
+\begin{console}
+int i;
+int j;
+int k;
+std::cin >> i >> j >> k;
+int * p = &i;
+int * q = &j;
+int * r = &k;
+q = p;
+p = r;
+std::cout << *p << ' ' << *q << ' ' << *r << '\n'; 
+\end{console}
+
+\textsc{Answer:}
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+%------------------------------------------------------------------------------
+\newpage
+\nextq
+At one point in the execution of a program, you have the following memory model:
+\begin{center}
+\includegraphics[width=4in]{pic01.PNG}
+\end{center}
+Is it possible to execute one or more statements to get the following:
+\begin{center}
+\includegraphics[width=4in]{pic02.PNG}
+\end{center}
+If it is, write the statements (use the least number please).
+If it isn't explain why.
+\textsc{Answer:}
+\begin{answercode}
+
+\end{answercode}
+
+
+%------------------------------------------------------------------------------
+\newpage
+\nextq
+The following code fragment has a memory leak.
+Correct the code to ensure there's no memory leak.
+(Make corrections to the code below directly.)
+
+\textsc{Answer:}
+\begin{answercode}
+int f(int n)
+{
+    int * a = new int[n];
+    int * i = new int;
+
+    a[0] = rand();
+
+    for (*i = 1; *i < n; ++(*i))
+    {
+        a[*i] += rand();
+        a[*i] -= a[*i - 1];
+    }
+    int ret = a[n - 1];
+
+    return ret;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\newpage
+\nextq
+The following works with a 2D array that is in the heap.
+(Look at the double for-loop.)
+Complete the declaration of \verb!p!, allocate memory appropriately,
+and at the end of the code fragment, deallocate memory used.
+
+\textsc{Answer:}
+\begin{answercode}
+// Declare p and allocate memory for p.
+
+
+  
+  
+for (int r = 0; r < 10; ++r)
+{
+    for (int c = 0; c < 20; ++c)
+    {
+        p[r][c] = 42;
+    }
+}
+
+// Deallocate memory use by p.
+
+
+
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+The following program computes and prints the minimum of an array of 10 integer
+values entered by the user.
+Follow the instructions (in comments) in order to complete the program.
+Do not remove the comments.
+I have already declared all the variables you need.
+Therefore do not declare any other variables.
+You must allocate and deallocate memory correctly.
+
+\textsc{Answer:}
+\begin{answercode}
+#include <iostream>
+
+int main()
+{
+    int * p;
+    int * q;
+    int * min; 
+
+    // Allocate memory for p so that p points to an array of 10 values
+    // in the memory heap.
+
+    // Prompt user for 10 integers and put them in the array that p
+    // points to.
+    for (q = p;  ; ++q)
+    {
+    }
+
+    // Compute the minimum of values in the array of 10 values that p
+    // points to and store in integer that min points to.
+    
+
+    std::cout << *min << std::endl;
+
+    // Deallcate memory used by p
+
+
+    return 0;
+}
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Write a function that checks if a string is a palindrome.
+A palindrome is a string that is it’s own \lq\lq reverse".
+In other words, you read the string left-to-right and right-to-left,
+you get the same string. For instance
+\[
+	\texttt{"madam"}
+\]
+Another example is 
+\[
+	\texttt{"tacocat"}
+\]
+
+Write a function \verb!is_two_palindromes!
+that checks if string is made up of two palindromes.
+For instance
+\[
+\texttt{"madammom"}
+\]
+is made up of the concatenation of two palindromes: \texttt{madam} and
+\texttt{mom}.
+
+Don’t forget that a C-string is null-terminated, i.e.,
+there’s an end-of-data character of \verb!'\0'! in the string that indicates
+where the string data ends.
+You \textit{cannot} use any C-string functions or the C\texttt{++} string class.
+You can add as many functions as you like.
+I've added an \verb!is_palindrome! function you can choose to use that or not.
+
+\textsc{Answer:}
+\begin{answercode}
+bool is_palindrome(char * start, char * end)
+{
+
+}
+
+bool is_two_palindromes(char s[])
+{
+
+}
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Complete the following \verb!Rectangle! class given the following requirements:
+\begin{enumerate}[nosep]
+
+\li There are two private member variables \verb!width_! and \verb!height_!,
+    both of \verb!double! type.
+
+\li You can construct a \verb!Rectangle! object of a given width (say 10) and
+    given height (say 5) as follows:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+Rectangle r(10, 5);
+    \end{Verbatim}
+You must use an initializer list whenever possible.
+
+\li You can also construct a \verb!Rectangle! object (say \verb!r1!) with
+    another \verb!Rectangle! object (say \verb!r2!) so that
+    \verb!r1! and \verb!r2! have the same width and height:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+Rectangle r1(r2);
+    \end{Verbatim}
+    You must use an initializer list whenever possible.
+
+\li You can get the value of the \verb!width_! of a Rectangle object
+    (say \verb!r!) as follows:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+std::cout << r.get_width() << std::endl;
+    \end{Verbatim}
+
+\li You can also get the value of the \verb!width_! of a
+    \verb!Rectangle! object (say \verb!r!) as follows:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+std::cout << r.width() << std::endl;
+    \end{Verbatim}
+
+\li You can set the value of the \verb!width_! of a \verb!Rectangle! object
+    (say \verb!r!) as follows:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+r.set_width(12.34);
+    \end{Verbatim}
+
+\li You can also set the value of the \verb!width_! of a \verb!Rectangle!
+    object (say \verb!r!) as follows:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+r.width() = 12.34;
+    \end{Verbatim}
+    
+\li You can also get the area of a \verb!Rectangle! object (say \verb!r!) as
+    follows:
+    \begin{Verbatim}[frame=single,fontsize=\small]
+std::cout << r.area() << std::endl;
+    \end{Verbatim}
+    
+\end{enumerate}
+All methods are to be implemented in the header file below.
+
+(Turn page)
+
+\newpage
+\textsc{Answer:}
+\begin{answercode}
+// file: Rectangle.h
+
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
+
+class Rectangle
+{
+public:
+private:
+};
+
+#endif
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+It has been decreed that every living thing in the Milky Way galaxy must have
+an integer \verb!id! (an integer).
+A human being of course is a living thing,
+but a human being has a gender (a character) and number of heads, arms, and
+legs.
+Create three classes: \verb!LivingThing!, \verb!Earthling! and
+\verb!Martian! where
+\verb!Earthling! is a subclass of \verb!LivingThing!.
+You only need to have enough code for the following code to execute:
+\begin{console}[fontsize=\small]
+// john has id 3423452, is male, has 2 heads, 3 arms, and 4 legs
+Earthling john(3423452, 'm', 2, 3, 4);
+\end{console}
+A martian also has an id, but no gender, have heads and legs, but no arms.
+All member variables must be private.
+Furthermore, based on the information above, various private member variables
+must be placed in the right class to minimize code duplication
+
+Implement the \verb!LivingThing! class below.
+(See next questions for the \verb!Earthling! and \verb!Martian! class.)
+
+\textsc{Answer:}
+\begin{answercode}
+// file: LivingThing.h
+
+#ifndef LIVINGTHING_H
+#define LIVINGTHING_H
+
+
+#endif
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+This is a continuation of the previous question.
+Implement the \verb!Earthling! class below.
+
+\textsc{Answer:}
+\begin{answercode}
+// file: Earthling.h
+
+
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+This is a continuation of the previous question.
+Implement the \verb!Martian! class below.
+
+\textsc{Answer:}
+\begin{answercode}
+// file: Martian.h
+
+
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+The following class allows us to create objects that models rational numbers:
+\begin{console}
+class Rational
+{
+public:
+    Rational(int n, int d)
+        : n_(n), d_(d)
+    {}
+    // other methods not shown
+private:
+    int n_;
+    int d_;
+};
+\end{console}
+Complete two methods that allows you to perform additions
+(\verb!+! and \verb!+=!).
+As an example, the following usage of the Rational class should work correctly:
+\begin{console}
+Rational r0(1, 2), r1(3, 4); // r0 models 1/2 and r1 models 3/4
+Rational r2 = r0 + r1;       // r2 models 1/2 + 3/4 , 
+                             // i.e., (1 * 3 + 2 * 4) / (2 * 4)
+Rational r3 = r2;
+r3 += r2;                    // r3 models r3 + r2
+\end{console}
+Your code \textit{must} be minimal.
+(HINT: \verb!+! should use \verb!+=!.)
+
+(Turn page)
+
+\newpage
+\textsc{Answer:}
+\begin{answercode}
+// file: Rational.h
+
+#ifndef RATIONAL_H
+#define RATIONAL_H
+
+class Rational
+{
+public:
+    Rational(int n, int d)
+        : n_(n), d_(d)
+    {}
+
+    // Complete methods below.
+    
+private:
+    int n_;
+    int d_;
+};
+
+#endif
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+The following class allows us to create objects that handle dynamic array of
+integers, i.e., each object contains a pointer to an array in the heap:
+\begin{console}[fontsize=\small]
+class IntDynArr
+{
+public:
+    IntDynArr(int size)
+        : p_(new int[size]), size_(size), capacity_(size)
+    {}
+    // other methods not shown
+private:
+    int * p_;
+    int size_;
+    int capacity_;
+};
+\end{console}
+Of course since objects of the class uses a resource that is not automatically
+released, you have to write the
+\begin{enumerate}[nosep]
+\li Destructor
+\li Copy constructor
+\li Assignment operator
+\end{enumerate}
+in order to overwrite the default ones:
+\begin{console}[fontsize=\small]
+class IntDynArr
+{
+public:
+    IntDynArr(int size)
+        : p_(new int[size]), size_(size), capacity_(size)
+    {}
+
+    ~IntDynArr();
+    IntDynArr(const IntDynArr &);
+    IntDynArr & operator=(const IntDynArr &);
+
+    // other methods not shown
+private:
+    int * p_;
+    int size_;
+    int capacity_;
+};
+\end{console}
+
+Implement the destructor below.
+(The copy constructor and assignment operator are in the next two
+questions.)
+
+\textsc{Answer:}
+\begin{answercode}
+// file: IntDynArray.cpp
+
+#include "IntDynArray.h"
+
+IntDynArray::~IntDynArr()
+{
+}
+
+// other methods not shown
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+This is a continuation of the previous question.
+Implement the copy constructor below for \verb!IntDynArray!.
+(Constructors not using initializer lists as much as possible are considered
+incorrect.)
+
+\textsc{Answer:}
+\begin{answercode}
+// file: IntDynArray.cpp
+
+#include "IntDynArray.h"
+
+IntDynArray::IntDynArr(const IntDynArr & x)
+{
+}
+
+// other methods not shown
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+This is a continuation of the previous question.
+Implement the assignment operator below for \verb!IntDynArray!.
+
+\textsc{Answer:}
+\begin{answercode}
+// file: IntDynArray.cpp
+
+#include "IntDynArray.h"
+
+IntDynArray & IntDynArray::operator=(const IntDynArr & x)
+{
+}
+
+// other methods not shown
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Complete the following recursive function \verb!sumsquares()! so that
+\verb!sumsquares(n)! computes $0^2 + 1^2 + 2^2 + \cdots + n^2$, i.e.,
+it computes the \lq\lq sum of squares".
+$n$ is an integer that is at least $0$.
+
+\textsc{Answer:}
+\begin{answercode}
+int sumsquares(int n)
+{
+}
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Write a recursive function to print the integers from address
+\verb!start! up to \textit{but not including} address \verb!end!.
+Between every two integers, the function prints a space.
+After all integers are print, the function prints a newline character.
+
+\textsc{Answer:}
+\begin{answercode}
+void println(int * start, int * end)
+{
+}
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Complete the following function that performs bubblesort on
+\verb!*start!, \verb!*(start+1)!, ..., \verb!*(end-1)!
+where \verb!x! is an array of integer values.
+Both functions must be recursive.
+
+\textsc{Answer:}
+\begin{answercode}
+// Performs one pass of bubblesort on *start, *(start + 1), ...,
+// *(end - 1).
+void bubblesort_pass(int * start, int * end)
+{
+
+
+
+
+
+
+}
+
+// Performs bubblesort on *start, *(start + 1), ..., *(end - 1).
+// Uses bubblesort_pass.
+void bubblesort(int * start, int * end)
+{
+
+
+
+
+
+ 
+}
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Convert the following \verb!vec2d!, which models a vector in 2D space with
+two \verb!doubles! to a class template, \verb!vec2!,
+which models a vector in 2D space with two \verb!T! values.
+You only need to modify what's in the given class.
+Do not implement any extra methods/functions not shown below.
+Furthermore, if the \verb!operator[]! is called with a value that is not
+\verb!0! or \verb!1!, an \verb!IndexError! object is thrown as an exception.
+
+\textsc{Answer:}
+\begin{answercode}
+// file: vec2d.h
+
+#ifndef VEC2D_H
+#define VEC2D_H
+
+class IndexError
+{};
+
+class vec2d
+{
+public:
+    vec2d(double x, double y)
+        : x_(x), y_(y)
+    {}
+    double operator[](int i) const
+    {
+        return (i == 0 ? x_ : y_);
+    }
+    double & operator[](int i)
+    {
+        return (i == 0 ? x_ : y_);
+    }
+private:
+    double x_;
+    double y_;
+};
+
+#endif
+\end{answercode}
+
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+The class below allows me to do this:
+\begin{console}[fontsize=\small]
+Square square;
+std::cout << square.compute(5) << '\n'; // prints 25
+\end{console}
+Modify the only method in the class so that I get a functor, i.e.,
+so that I can do this instead:
+\begin{console}[fontsize=\small]
+Square square;
+std::cout << square(5) << '\n'; // prints 25
+\end{console}
+
+\textsc{Answer:}
+\begin{answercode}
+// file: square.h
+
+#ifndef SQUARE_H
+#define SQUARE_H
+
+class Square
+{
+public:
+    int compute(int x)
+    {
+        return x * x;
+    }
+};
+
+#endif
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+The following will print \verb!"A::f()\n"! twice.
+Modify it (add one C\texttt{++} keyword) so that one of the outputs is
+\verb!"A::f()\n"! and the other is \verb!"B::f()\n"!. 
+
+\textsc{Answer:}
+\begin{answercode}
+#include <iostream>
+
+class A
+{
+public:
+    void f() const
+    {
+        std::cout << "A::f()\n";
+    }
+};
+
+class B: public A
+{
+public:
+    void f() const
+    {
+        std::cout << "B::f()\n";
+    }
+};
+
+int main()
+{
+    B b1;
+    A a1 = b1; 
+    a1.f();
+
+    B b2;
+    A * a2 = &b2;
+    a2->f();
+
+    return 0;
+}
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+The following code (obviously!) does not work.
+Correct it so that the output is
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+grrr ... i'm a wumpus
+hi ... i'm a hunter
+\end{Verbatim}
+
+\textsc{Answer:}
+\begin{answercode}
+#include <iostream>
+#include <vector>
+
+class LivingThing
+{};
+
+class Wumpus
+{
+public:
+    void print() const
+    {
+        std::cout << "grrr ... i'm a wumpus\n";
+    }
+};
+
+class Hunter
+{
+public:
+    void print() const
+    {
+        std::cout << "hi ... i'm a hunter\n";
+    }
+};
+
+int main()
+{
+    std::vector< LivingThing > things;
+    things.push_back(Wumpus());
+    things.push_back(Hunter());
+
+    for (int i = 0; i < 2; ++i)
+    {
+        things[i].print();
+    }
+    
+    return 0;
+}
+\end{answercode}
+
+%-------------------------------------------------------------------------------
+\newpage
+\nextq
+Complete the following that prints the values of \verb!x! in ascending order
+\textit{without} changing the values of \verb!x!.
+In other words
+the value of \verb!x[0]! stays the same,
+the value of \verb!x[1]! stays the same, etc.
+The array in \verb!main()! is only a test case.
+Your program must work for any integer array.
+
+\begin{answercode}
+#include <iostream>
+
+void bubblesort(int ** start, int ** end)
+{
+    // COMPLETE THIS FUNCTION
+}
+
+int main()
+{
+    const int n = 5;            
+    int x[n] = {5, 3, 1, 2, 4};
+    
+    int * px[n];
+    for (int i = 0; i < n; ++i)
+    {
+        px[i] = &x[i];
+    }
+
+    bubblesort(&px[0], &px[n]);
+    
+    // The original array x is unchanged.
+    for (int *p = &x[0]; p < &x[n]; ++p)
+    {
+        std::cout << (*p) << ' ';
+    }
+    std::cout << '\n';
+
+    // Prints the values in x in ascending order.
+    for (int ** p = &px[0]; p < &px[n]; ++p)
+    {
+        std::cout << (**p) << ' ';
+    }
+    std::cout << '\n';
+    
+    return 0;
+}
+\end{answercode}
+
+%------------------------------------------------------------------------------
+\newpage
+\input{instructions}
+\end{document}

@@ -1,0 +1,20 @@
+/****************************************************************
+FILE : Fraction.h
+AUTHOR : Brysen Landis
+****************************************************************/
+
+#ifndef FRACTION_H
+#ifndef FRACTION_H
+
+#include <iostream>
+
+struct fraction
+{
+    int n; // numerator
+    int d; // denominator
+};
+
+std::ostream & operator<<(std::ostream &, const Fraction &);
+Fraction operator+(const Fraction &, const Fraction &);
+
+#endifx

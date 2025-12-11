@@ -22,7 +22,6 @@ void hanoi(int n, char from, char helper, char to)
     }
 }
 
-
 int main()
 {
     // for (int n = 0; n < 10; ++n)

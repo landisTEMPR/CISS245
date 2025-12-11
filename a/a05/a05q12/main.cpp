@@ -5,6 +5,7 @@ Author : Brysen Landis
 
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "Robot.h"
 #include "World.h"
 #include "PowerStation.h"
@@ -12,14 +13,15 @@ Author : Brysen Landis
 
 int main()
 {
-    int seed;
-    int time = 100;
+    int timer = 100;
     char world[10][10];
     Robot robots[3];
     PowerStation ps[3]; // Add power stations
 
-    std::cin >> seed;
-    srand(seed);
+    // int seed;
+    // std::cin >> seed;
+    
+    srand((unsigned int) time(NULL));
 
     init(world);
     place_robots(world, robots, 3);
@@ -28,9 +30,9 @@ int main()
 
     print(world);
 
-    while (time > 0)
+    while (timer > 0)
     {
-        std::cout << "Time: " << time << '\n';
+        std::cout << "Time: " << timer << '\n';
 
         // Check if any robot found gold
         if (found_gold(world, robots, 3))
@@ -46,11 +48,11 @@ int main()
         recharge_robots(world, robots, ps, 3);
 
         // Decrease time and print updated world
-        --time;
+        --timer;
         print(world);
     }
 
-    if (time == 0)
+    if (timer == 0)
         std::cout << "Time’s up! No robot found the gold.\n";
 
     print(world);

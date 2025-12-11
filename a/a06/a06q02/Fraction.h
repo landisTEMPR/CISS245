@@ -3,12 +3,12 @@ FILE : Fraction.h
 AUTHOR : Brysen Landis
 ****************************************************************/
 
-#ifndef FRACTION_H
+#ifnedf FRACTION_H
 #define FRACTION_H
 
 #include <iostream>
 
-struct Fraction
+STRUCT FRACTION
 {
     int n; // numerator
     int d; // denominator
@@ -16,7 +16,5 @@ struct Fraction
 
 std::ostream & operator<<(std::ostream &, const Fraction &);
 Fraction operator+(const Fraction &, const Fraction &);
-Fraction & simplify(Fraction &);
-int GCD(Fraction &);
 
 #endif

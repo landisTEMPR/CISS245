@@ -1,0 +1,956 @@
+%-*-latex-*-
+\input{thispreamble}
+
+\renewcommand\AUTHOR{} % CHANGE TO YOURS
+  
+\begin{document}
+\topmattertwo
+
+\newcommand\abox[1]{
+  \begin{flushright}
+    ANSWER:
+    \newsolutionboxone{0.5in}{0.25in}{\instructoronly{#1}}
+  \end{flushright}
+  }
+
+\begin{python}
+from latextool_basic import *
+honor_statement()
+\end{python}
+
+%------------------------------------------------------------------------------
+\newpage
+\begin{python}
+from latextool_basic import *
+test_score_table()
+\end{python}
+
+This is a
+\begin{enumerate}
+  \li Closed-book
+  \li Closed-notes
+  \li No calculator
+  \li No computer (except your brain)
+  \li No discussion (except with yourself)
+\end{enumerate}
+Write legibly.
+
+%==============================================================================
+\newpage
+\textsc{How to describe a binary tree in text}
+
+For the above questions,
+here's an example on how to describe a binary tree in text.
+For this tree
+\begin{console}[fontsize=\footnotesize]
+            (10)
+          /      \
+      ( 4)        (25)
+     /           /    \
+ ( 1)        (12)      (27)
+                           \
+                            (29)          
+\end{console}
+you write
+\begin{console}[fontsize=\footnotesize]
+[10, [4, 25]]
+[4, [1, None]]
+[25, [12, 27]]
+[1, [None, None]]
+[12, [None, None]]
+[27, [None, 29]]
+[29, [None, None]]
+\end{console}
+
+%==============================================================================
+\newpage
+Q1. [Derive big--O of runtime of a given algorithm]
+
+The following computes the sum of squares from $1^2$ to $n^2$:
+\begin{Verbatim}[frame=single]
+s = 0
+for i = 0, ..., n - 1:
+    term = i * i
+    s = s * s + term
+\end{Verbatim}
+Here's the program with goto statements and timing for each statement:
+\begin{Verbatim}[frame=single]
+         i = 1              time t0
+         s = 0              time t1
+LOOP:    if i > n:          time t2
+             goto ENDLOOP   time t3
+         term = i * i       time t4
+         s = s + term       time t5
+         i = i + 1          time t6
+         goto LOOP          time t7
+ENDLOOP:
+\end{Verbatim}
+(a) Compute the time taken as a function of $n$.
+The expression should contain constants $t_0$, ..., $t_7$.
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+(b) Simplify the runtime function by giving names $A$, $B$, ...
+to the constants of the function from (a).
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+(c) Fudge away the constants and write down the simplest $g(n)$ such 
+that the time in (b) is a big-O of your $g(n)$.
+Your $g(n)$ should be either $n^0$ (i.e., 1) or $n$ or $n^2$ or $n^3$ or ...
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+%==============================================================================
+\newpage
+Q2. [Recognize big--O of algorithm]
+
+(a)
+What is the big--O of the runtime of the following algorithm:
+\begin{Verbatim}[frame=single]
+s = 0
+for i = 0, 1, 2, ..., n - 1:
+    for j = 0, 1, 2, ..., i:
+        for k = j, j + 1, ..., n - 1:
+            s = s + x[i][j] + k
+\end{Verbatim}
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+(b)
+What is the big--O of the runtime of the following algorithm:
+\begin{Verbatim}[frame=single]
+s = 0
+for i = 0, 1, 2, ..., n - 1:
+    for j = 0, 1, 2, 3::
+        for k = i, i + 1, ..., n - 1:
+            s = s + x[i][k] * j
+\end{Verbatim}
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+(c)
+What is the big--O of the best runtime of the following algorithm:
+\begin{Verbatim}[frame=single]
+s = 0
+for i = 0, 1, 2, ..., n - 1:
+    if x[0][0] > 0:
+        for j = 0, 1, 2, 3::
+            for k = i, i + 1, ..., n - 1:
+                s = s + x[i][k] * j
+\end{Verbatim}
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+%==============================================================================
+\newpage
+Q3. [Recall big-O runtime performance of standard algorithms]
+
+For questions on runtime,
+\underline{just state} the big-O of the runtime performance.
+
+
+(a) What is the worst runtime of mergesort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+  
+(b) What is the best runtime of mergesort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+  
+(c) What is the average runtime of mergesort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+  
+(d) What is the worst runtime of quicksort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+(e) What is the best runtime of quicksort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+(f) What is the average runtime of quicksort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+
+(g) What is the worse runtime of heapsort?
+\\
+\ANSWER
+\begin{answerlong}
+$T(n) = ?$
+\end{answerlong}
+
+%==============================================================================
+\newpage
+Q4. [Trace of basic sorting algorithms]
+
+Perform selection sort on the following array, showing
+the result after each pass:
+\[
+\texttt{ \{5, 1, 2, 4, 3, 6\} } 
+\]
+\ANSWER
+\begin{answercode}
+{5, 1, 2, 4, 3, 6}
+
+\end{answercode}
+
+
+%==============================================================================
+\newpage
+Q5.
+
+(a) 
+What are the correct intermediate steps of the following
+\[
+15,20,10,18
+\]
+when it is
+being sorted with the quicksort?
+Write down \textit{all} that applies.
+(Each stage is the array after pivoting and partitioning.
+There are of course many methods for choosing a pivot 
+and many ways to partition -- 
+you do not need to know the specific method to answer this question.)
+\begin{enumerate}
+\item[(A)] 15,10,20,18 $\rightarrow$ 15,10,18,20 $\rightarrow$ 10,15,18,20
+\item[(B)] 15,20,10,18 $\rightarrow$ 15,10,20,18 $\rightarrow$ 10,15,20,18
+\item[(C)] 10,20,15,18 $\rightarrow$ 10,15,20,18 $\rightarrow$ 10,15,18,20
+\item[(D)] 10,20,15,18 $\rightarrow$ 10,18,15,20 $\rightarrow$ 10,15,18,20
+\item[(E)] None of the above.
+\end{enumerate}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(b) Write down \textit{all} that applies: Quicksort uses
+\begin{enumerate}
+\item[(A)] finding maximum 
+\item[(B)] partitioning
+\item[(C)] finding a pivot
+\item[(D)] merging
+\end{enumerate}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(c) Write down one of the two: Quicksort is a stable sort.
+\begin{enumerate}
+  \item[(A)] True
+  \item[(B)] False
+\end{enumerate}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+%==============================================================================
+\newpage
+Q6.
+You are given the following singly linked node class:
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+class Node
+{
+public:
+    Node(int key=0, Node * next=NULL)
+        : key_(key), next_(next)
+    {}
+    
+    int key_;
+    Node * next_;
+};
+\end{Verbatim}
+Note that all members are public (to make life simple).
+The following is a class for singly linked list (of integers):
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+class SLList
+{
+public:
+    SLList()
+        : phead_(NULL)
+    {}
+    
+    // other methods
+    
+private:
+    Node * phead_;
+};
+\end{Verbatim}
+
+Complete the following methods that removes the head node
+if the linked list is not empty.
+If the linked list is empty (i.e., \verb!phead_! is \verb!NULL!),
+nothing is done (i.e., do not throw any exception).
+Note that the return type is \verb!void!, i.e., do not
+return any value.
+\ANSWER
+\begin{answercode}
+void SLList::delete_head()
+{
+
+
+
+
+
+
+
+
+  
+}
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q7. [Doubly linked list]
+
+You are given an incomplete skeleton of a doubly linked list implementation:
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+class Node
+{
+public:
+    Node(int key=0, Node * prev=NULL, Node * next=NULL)
+        : key_(key), prev_(prev), next_(next)
+    {}
+    int key_;
+    Node * prev_;
+    Node * next_;
+};
+
+class DLList
+{
+public:
+    DLList()
+        : pheadsentinel_(new Node(0, NULL, NULL)),
+          ptailsentinel_(new Node(0, NULL, NULL))
+    {
+        pheadsentinel_->next_ = ptailsentinel;        
+        ptailsentinel_->prev_ = pheadsentinel;        
+    }
+private:
+    Node * pheadsentinel_;  
+    Node * ptailsentinel_;  
+};
+\end{Verbatim}
+
+Complete the following method to perform insert tail.
+
+\ANSWER
+\begin{answercode}
+void DLList::insert_tail(int key)
+{
+
+
+
+  
+}
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q8. [Tree]
+\begin{python}
+from latextool_basic import *
+print(graph(shape='circle',
+        yscale=1.3,
+        minimum_size='5mm',
+        layout='''
+             a
+         b   c   d
+        e   f g h i j
+       k l     m  
+        ''',
+        edges='a>b,a>c,a>d,b>e,c>f,c>g,d>h,d>i,d>j,e>k,e>l,h>m',
+        ))
+\end{python}
+
+(a) List the values of the nodes using pre-order traversal:
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(b) List the values of the nodes using post-order traversal:
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(c) What is the height of the tree?
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(d) What is the depth of $h$?
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(e) What are the siblings of $i$?
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(f) Suppose \verb!Node! is a binary tree node class.
+Assume that the class has \verb!get_left()! and \verb!get_right()!
+methods to return the left and right pointer of a \verb!Node!
+object.
+Complete the following function that computes the height at \verb!p!.
+You may assume that there's a \verb!max()! function such that
+\verb!max(a, b)! returns the maximum of \verb!a! and \verb!b!.
+
+\ANSWER
+\begin{answercode}
+int height(const Node * const p)
+{
+  
+}
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q9. [BST]
+
+Write down the runtimes of the following operations on a BST
+(binary search tree) that has $n$ nodes.
+
+(a) Best runtime for insert (when given key):
+\\
+\ANSWER
+\begin{answerlong}
+
+\end{answerlong}
+
+(b) Worst runtime for insert (when given key):
+\\
+\ANSWER
+\begin{answerlong}
+
+\end{answerlong}
+
+(c) Best runtime for delete (when given key): 
+\\
+\ANSWER
+\begin{answerlong}
+
+\end{answerlong}
+
+(d) Worst runtime for delete (when given key):
+\\
+\ANSWER
+\begin{answerlong}
+
+\end{answerlong}
+
+(e) Worst runtime for search (returning pointer when given key):
+\\
+\ANSWER
+\begin{answerlong}
+
+\end{answerlong}
+
+(f) You are given this BST:
+\begin{python}
+from latextool_basic import *
+print(r'''
+\begin{center}
+%s
+\end{center}
+''' % graph(shape='circle',
+        yscale=1.3,
+        minimum_size='5mm',
+        layout='''
+           a
+         b   c  
+        e d f g 
+       k l n p 
+        ''',
+        edges='a>b,a>c,b>d,b>e,c>f,c>g,e>k,e>l,f>n,f>p',
+        a='label=40',
+        b='label=20',
+        c='label=60',
+        d='label=25',
+        e='label=5',
+        f='label=50',
+        g='label=70',
+        k='label=1',
+        l='label=10',
+        n='label=45',
+        p='label=55',
+        ))
+\end{python}
+Describe the resulting BST in text after deleting the value 20.
+(Recall our choice of \lq\lq always using left subtree whenever possible''
+when doing delete.)
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q10. [Balancing tree]
+Let $T$ be the following tree:
+\begin{python}
+from latextool_basic import *
+print(r'''
+\begin{center}
+%s
+\end{center}
+''' % graph(shape='circle',
+        yscale=1.3,
+        minimum_size='5mm',
+        layout='''
+           a
+         b   c  
+        e d f g 
+       k l n p 
+        ''',
+        edges='a>b,a>c,b>d,b>e,c>f,c>g,e>k,e>l,f>n,f>p',
+        ))
+\end{python}
+
+(a) Describe the tree $T$ in text after a right rotation at $c$.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+(b) Draw the tree $T$ after a left rotation at  $a$.
+(Note: $T$ refers the tree at the beginning
+of the question and not the resulting tree of (a).)
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+(c) Going back to the original tree $T$ in (a), suppose
+$q$ was inserted on the left of $k$ (and the tree was re-balanced if necessary),
+followed by
+inserting $r$ on the right of $q$ (and the tree was re-balanced if necessary),
+followed by
+inserting $s$ on the \textred{\textso{left of $r$} right of $q$}
+(and the tree was re-balanced if necessary),
+Describe the resulting tree in text.
+\\
+\ANSWER
+\begin{answercode}
+
+
+
+
+
+
+
+
+
+\end{answercode}
+
+(d) Going back to the original tree $T$ in (a), suppose
+$q$ was inserted on the right of $k$ (and the tree was re-balanced if necessary)
+followed by inserting $r$ on the left of $q$ (and the tree was re-balanced if
+necessary).
+Describe the resulting tree in text.
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q11. [Heaps]
+
+Starting with an empty max heap (as an array of course),
+perform the following operations.
+Show the result of each step after each heapify operation.
+Describe the heap in text like an array such as \verb!{1, 2, 3, 4, 5}!
+Note that the heap is a \textit{max} heap.
+
+
+(a) Insert 5:
+\\
+\ANSWER
+\begin{answercode}
+{5}
+\end{answercode}
+
+
+(a) Insert 1:
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+(b) Insert 2:
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+(c) Insert 4:
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+(d) Insert 3:
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+(e) Insert 6:
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+(f) Delete max (the root):
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+(g) Delete max (the root):
+\\
+\ANSWER
+\begin{answercode}
+{}
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q12. [Heapsort]
+
+(a)
+Consider the following array:
+\[
+\texttt{ \{5, 1, 0, 2, 3, 7, 3, 4\} }
+\]
+Perform operations on the array to build a maxheap.
+Draw the array after \textit{every} swap.
+
+\ANSWER
+\begin{answercode}
+{5, 1, 0, 2, 3, 7, 3, 4}
+
+\end{answercode}
+
+
+\newpage
+(b) You are given a maxheap (as an array). Perform heapsort on the array,
+drawing the array after \textit{every} swap.
+\[
+\texttt{ \{7,5,6,3,2,4,0,1\} }
+\]
+
+\ANSWER
+\begin{answercode}
+{7, 5, 6, 3, 2, 4, 0, 1}
+
+\end{answercode}
+
+
+
+
+
+%==============================================================================
+\newpage
+Q13. [Hash table]
+
+Let the following function
+\[
+h(x) = 2 x + 1
+\]
+be used as a hash function.
+
+(a)
+In a hash table of size 8, insert the keys
+1,3,2,5,4,8,6,7.
+You must insert the keys in the given order, going left to right.
+(Of course it the hash value is too huge, you mod is by the size of the table.)
+Draw the table below.
+The first number for each row is the index of that row,
+the second is for a flag that indicates the state of the row:
+\begin{tightlist}
+  \li If a row is not occupied, the flag value is Available.
+  \li If a row is occupied, the flag value is Not-Available.
+  \li If a row was previously occupied (but that row was then deleted),
+  the flag value is Deleted.
+\end{tightlist}
+The third column is for the key.
+The fourth column is for the value of a row and can be left blank.
+
+As an example, if the index 0 row is occupied by key 99, then
+the row at index 0 is
+\[
+\texttt{0:\ \{Not-Available, 99,\}}
+\]
+See table below for this example.
+
+In the event of a hash collision, the collision resolution method you should
+use is linear probe, i.e., the \lq\lq next row'' method.
+
+\ANSWER
+\begin{answercode}
+0: {Not-Available, 99, }
+1: { , , }
+2: { , , }
+3: { , , }
+4: { , , }
+5: { , , }
+6: { , , }
+7: { , , }
+\end{answercode}
+(The data at index 0 is only an example. Correct it.)
+
+(b) Continue with (a).
+For each of the following keys, write down the number of rows
+accessed in order to find that key.
+Write down the average number of rows accessed.
+\\
+\ANSWER
+\begin{answercode}
+key 1: 
+key 2:
+key 3:
+key 4:
+key 5:
+key 6:
+key 7:
+key 8:
+Average:
+\end{answercode}
+  
+(c) Continue with (b).
+What is the worst case in terms of number of rows accessed
+during a find of a key \textit{not} in the table?
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+
+%==============================================================================
+\newpage
+Q14. [Applications of linked list]
+
+(a) Convert the following infix arithmetic expression
+\[
+  2 * 1 - 3 / (6 + 5 - 4) + 7 
+\]
+into RPN.
+(Do \textit{not} simplify, i.e., all the above digits must appear
+in the RPN expression.)
+\\
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+(b) Evaluate the following arithmetic expression written in RPN
+\begin{Verbatim}
+                          3 4 + 7 2 1 + / - 6 5 * -
+\end{Verbatim}
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+(c)
+In part (b),
+what is the maximum size of the stack during the computation?
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+
+%==============================================================================
+\newpage
+Q15.
+(a) Describe an algorithm that you would
+use to sort an array \verb!x! of 1000000000 integers with values
+    in the following ranges: each \verb!x[i]! is in -100,...,-91
+    or in 1000000, ..., 1000009.
+    
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+(b)
+Next, provide a C++ implementation.
+Of course assume you want the fastest algorithm.
+Your answer is incorrect if your runtime is not the best possible.
+
+\ANSWER
+\begin{answercode}
+void sort(int x[])
+{
+    int t[           ]; // If your sorting is in-place, delete this line
+
+      
+}      
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q16.
+Implement mergesort to sort an array of integer values in ascending order.
+The prototype is \verb!mergesort(int * start, int * end, int * t)!.
+The array to be sorted is \verb!*start!, ..., \verb!*(end - 1)!.
+You may assume \verb!t! points to a temporary array that is large
+enough for your mergesort.
+(You probably want a merge function.)
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+
+%==============================================================================
+\newpage
+Q17.
+Suppose you are given the following node class for binary trees:
+\begin{console}
+class Node
+{
+public:
+    int key_;
+    Node * parent_;
+    Node * left_;
+    Node * right_;
+};
+\end{console}
+Write a function \verb!deallocate! such that if \verb!proot!
+points to the root of a binary tree (with nodes in the heap),
+\verb!deallocate(proot)! will deallocate the memory used by this tree
+and set \verb!proot! to \verb!NULL!.
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+
+%==============================================================================
+\newpage
+Q18.
+Describe an algorithm $f$ such that $f(x, n, k)$ would
+compute the $k$--th smallest value in an array $x[0..n - 1]$ of doubles.
+For instance if the array is
+\[
+x = \{1.1, 5.5, 2.2, 7.7, 3.3, 4.4\}
+\]
+then $f(x, n, 3)$ would return the third smallest value of $x$, which is $3.3$.
+Note that you want the fastest algorithm.
+
+(Hint: Modify quicksort.)
+
+\ANSWER
+\begin{answercode}
+
+\end{answercode}
+
+
+
+\end{document}
